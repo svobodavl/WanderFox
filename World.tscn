@@ -1,18 +1,18 @@
 [gd_scene load_steps=65 format=2]
 
-[ext_resource path="res://World/Bush.tscn" type="PackedScene" id=1]
+[ext_resource path="res://World/Bush/Bush.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://World/GrassBackground.png" type="Texture" id=3]
-[ext_resource path="res://World/DirtTileset.png" type="Texture" id=4]
-[ext_resource path="res://World/CliffTileset.png" type="Texture" id=5]
-[ext_resource path="res://World/Grass.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Enemies/Bat.tscn" type="PackedScene" id=7]
-[ext_resource path="res://UI/HealthUI.tscn" type="PackedScene" id=8]
-[ext_resource path="res://World/Tree.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Enemies/Camera2D.tscn" type="PackedScene" id=10]
-[ext_resource path="res://World/Chest.tscn" type="PackedScene" id=11]
-[ext_resource path="res://UI/Dialog.tscn" type="PackedScene" id=12]
-[ext_resource path="res://WhiteColorShader.shader" type="Shader" id=13]
+[ext_resource path="res://World/Grass/GrassBackground.png" type="Texture" id=3]
+[ext_resource path="res://World/Tilesets/DirtTileset.png" type="Texture" id=4]
+[ext_resource path="res://World/Tilesets/CliffTileset.png" type="Texture" id=5]
+[ext_resource path="res://World/Grass/Grass.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Enemies/Bat/Bat.tscn" type="PackedScene" id=7]
+[ext_resource path="res://UI/Health/HealthUI.tscn" type="PackedScene" id=8]
+[ext_resource path="res://World/Tree/Tree.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Player/Camera/Camera2D.tscn" type="PackedScene" id=10]
+[ext_resource path="res://World/Chest/Chest.tscn" type="PackedScene" id=11]
+[ext_resource path="res://UI/Dialogue/Dialog.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Shaders/WhiteColorShader.shader" type="Shader" id=13]
 
 [sub_resource type="TileSet" id=1]
 resource_local_to_scene = true
@@ -913,7 +913,7 @@ position = Vector2( -287, 191 )
 
 [node name="Sprite" parent="YSort/Bats/Bat" index="0"]
 material = SubResource( 51 )
-frame = 0
+frame = 3
 
 [node name="Bat8" parent="YSort/Bats" groups=[
 "Bats",

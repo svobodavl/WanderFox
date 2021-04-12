@@ -17,7 +17,10 @@ _global_script_class_icons={
 
 config/name="WanderFox"
 run/main_scene="res://World.tscn"
-config/icon="res://icon.png"
+
+[audio]
+
+default_bus_layout=""
 
 [autoload]
 
@@ -117,7 +120,3 @@ bush_ability={
 2d_physics/layer_5="Enemy"
 2d_physics/layer_6="SoftCollisions"
 2d_physics/layer_7="Interactables"
-
-[rendering]
-
-environment/default_environment="res://default_env.tres"

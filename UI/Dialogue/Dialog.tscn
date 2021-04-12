@@ -1,0 +1,105 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://UI/Dialogue/DialogueBox.png" type="Texture" id=1]
+[ext_resource path="res://UI/Dialogue/RichTextLabel.gd" type="Script" id=2]
+[ext_resource path="res://UI/VPPixel-Simplified.otf" type="DynamicFontData" id=3]
+[ext_resource path="res://Player/Abilities/Bush ability explanation.png" type="Texture" id=4]
+[ext_resource path="res://Player/Abilities/BushAbilityExplanation.gd" type="Script" id=5]
+[ext_resource path="res://UI/Dialogue/Dialog.gd" type="Script" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 3 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "Opacity"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Opacity"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3.5, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="Control" type="Node2D"]
+script = ExtResource( 6 )
+
+[node name="DialogBox" type="Control" parent="."]
+anchor_left = 0.519
+anchor_top = 1.0
+anchor_right = 0.519
+anchor_bottom = 1.0
+margin_left = -125.08
+margin_top = -131.0
+margin_right = 124.92
+margin_bottom = -47.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="DialogBox"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogBox"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -115.185
+margin_top = -33.4082
+margin_right = 115.362
+margin_bottom = 33.4978
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[center]You found the Bush ability"
+text = "You found the Bush ability"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="DialogBox"]
+wait_time = 0.05
+autostart = true
+
+[node name="BushAbilityExplanation" type="Sprite" parent="DialogBox"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 123.412, 54.827 )
+texture = ExtResource( 4 )
+script = ExtResource( 5 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DialogBox/BushAbilityExplanation"]
+anims/Opacity = SubResource( 2 )
+
+[node name="TextBoxOpacity" type="AnimationPlayer" parent="."]
+anims/Opacity = SubResource( 3 )
+[connection signal="timeout" from="DialogBox/Timer" to="DialogBox/RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="animation_finished" from="TextBoxOpacity" to="." method="_on_TextBoxOpacity_animation_finished"]

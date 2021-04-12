@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://World/Bush/Bush.png" type="Texture" id=1]
+[ext_resource path="res://Player/Abilities/BushAbility.gd" type="Script" id=2]
+
+
+
+[node name="BushAbility" type="Sprite"]
+texture = ExtResource( 1 )
+script = ExtResource( 2 )

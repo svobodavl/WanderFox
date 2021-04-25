@@ -500,7 +500,7 @@ shader_param/active = false
 [node name="World" type="Node2D"]
 
 [node name="Background" type="Sprite" parent="."]
-position = Vector2( 157, 92 )
+position = Vector2( 163, 89 )
 texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 1032, 659 )
@@ -913,7 +913,6 @@ position = Vector2( -287, 191 )
 
 [node name="Sprite" parent="YSort/Bats/Bat" index="0"]
 material = SubResource( 51 )
-frame = 3
 
 [node name="Bat8" parent="YSort/Bats" groups=[
 "Bats",
@@ -997,13 +996,19 @@ margin_bottom = 15.0
 [node name="Control" parent="CanvasLayer" instance=ExtResource( 12 )]
 visible = false
 position = Vector2( 135, 138 )
+
 [connection signal="BatCanSeePlayer" from="YSort/Player" to="YSort/Bats/Bat" method="_on_Player_BatCanSeePlayer"]
 [connection signal="BatCantSeePlayer" from="YSort/Player" to="YSort/Bats/Bat" method="_on_Player_BatCantSeePlayer"]
 [connection signal="HasBushOn" from="YSort/Bushes/Bush32" to="YSort/Player" method="_on_Bush4_HasBushOn"]
 [connection signal="HasBushOn" from="YSort/Bushes/Bush33" to="YSort/Player" method="_on_Bush4_HasBushOn"]
 
 [editable path="Camera2D"]
-
 [editable path="YSort/Player"]
-
+[editable path="YSort/Player/HitboxPivot/SwordHitbox"]
+[editable path="YSort/Player/Hurtboxes"]
+[editable path="YSort/Player/Interactable"]
 [editable path="YSort/Bats/Bat"]
+[editable path="YSort/Bats/Bat/Hurtboxes"]
+[editable path="YSort/Bats/Bat/Hitbox"]
+[editable path="YSort/Bats/Bat/SoftCollision"]
+[editable path="YSort/Bats/Bat/PlayerDetectionZone"]

@@ -5,7 +5,6 @@
 [ext_resource path="res://Overlap/Interactable.tscn" type="PackedScene" id=3]
 [ext_resource path="res://World/Bush/Bush.gd" type="Script" id=4]
 
-
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 8.0
 height = 16.0
@@ -32,6 +31,7 @@ shape = SubResource( 1 )
 
 [node name="CollisionShape2D" parent="Interactable" index="0"]
 shape = SubResource( 2 )
+
 [connection signal="HasBushOn" from="." to="." method="_on_Bush_HasBushOn"]
 [connection signal="area_entered" from="Interactable" to="." method="_on_Interactable_area_entered"]
 [connection signal="area_exited" from="Interactable" to="." method="_on_Interactable_area_exited"]

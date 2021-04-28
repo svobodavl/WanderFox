@@ -25,6 +25,7 @@ var PlayerDetectionZoneIsActive = true
 
 var state = CHASE
 var DetectionZone = load("PlayerDetectionZone")
+var AttackZone = load("AttackZone")
 
 onready var sprite = $Sprite
 onready var stats = $Stats	
@@ -36,7 +37,7 @@ onready var animationPlayer = $AnimationPlayer
 
 func _ready():
 	state = pick_random_state([IDLE, WANDER])
-
+	
 func _physics_process(delta):
 	BatCantSeePlayer = false
 	
@@ -112,3 +113,9 @@ func bat_cant_see_player():
 	
 func bat_can_see_player():
 	PlayerDetectionZoneIsActive = true
+
+func _on_AnimationPlayer_animation_finished(Attack):
+	animationPlayer.play("Idle")
+
+func _on_AttackZone_body_entered(body):
+	animationPlayer.play("Attack")

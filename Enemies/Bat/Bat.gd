@@ -112,3 +112,4 @@ func bat_cant_see_player():
 	
 func bat_can_see_player():
 	PlayerDetectionZoneIsActive = true
+

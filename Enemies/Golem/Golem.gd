@@ -116,6 +116,14 @@ func bat_can_see_player():
 
 func _on_AnimationPlayer_animation_finished(Attack):
 	animationPlayer.play("Idle")
+	ACCELERATION = 300
+	MAX_SPEED = 50
 
 func _on_AttackZone_body_entered(body):
 	animationPlayer.play("Attack")
+	ACCELERATION = 800
+	MAX_SPEED = 75
+
+func _on_AttackZone_body_exited(body):
+	ACCELERATION = 300
+	MAX_SPEED = 50

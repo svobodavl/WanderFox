@@ -34,6 +34,7 @@ onready var hurtbox = $Hurtboxes
 onready var softCollision = $SoftCollision
 onready var wanderController = $WanderController
 onready var animationPlayer = $AnimationPlayer
+onready var dashTimer = $DashTimer
 
 func _ready():
 	state = pick_random_state([IDLE, WANDER])
@@ -114,16 +115,17 @@ func bat_cant_see_player():
 func bat_can_see_player():
 	PlayerDetectionZoneIsActive = true
 
-func _on_AnimationPlayer_animation_finished(Attack):
-	animationPlayer.play("Idle")
+func _on_AttackZone_body_entered(body):
+	sprite.play("Attack")
+	ACCELERATION = 1600
+	MAX_SPEED = 150
+	dashTimer.start()
+
+func _on_DashTimer_timeout():
 	ACCELERATION = 300
 	MAX_SPEED = 50
 
-func _on_AttackZone_body_entered(body):
-	animationPlayer.play("Attack")
-	ACCELERATION = 800
-	MAX_SPEED = 75
-
-func _on_AttackZone_body_exited(body):
+func _on_Sprite_animation_finished():
+	sprite.play("Animate")
 	ACCELERATION = 300
 	MAX_SPEED = 50

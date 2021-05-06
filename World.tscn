@@ -917,7 +917,7 @@ position = Vector2( -287, 191 )
 
 [node name="Sprite" parent="YSort/Bats/Bat" index="0"]
 material = SubResource( 51 )
-frame = 3
+frame = 0
 
 [node name="Bat8" parent="YSort/Bats" groups=[
 "Bats",

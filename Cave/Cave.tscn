@@ -1,4 +1,4 @@
-[gd_scene load_steps=107 format=2]
+[gd_scene load_steps=109 format=2]
 
 [ext_resource path="res://Cave/CaveBackground.jpg" type="Texture" id=1]
 [ext_resource path="res://Cave/Tilesets/StoneWallTileset.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://UI/Dialogue/Dialog.tscn" type="PackedScene" id=9]
 [ext_resource path="res://UI/Health/HealthUI.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Enemies/Golem/Golem.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Enemies/Bosses/Golem Boss/GolemBoss.tscn" type="PackedScene" id=12]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( 32, 32, 5, 32, 5, 5, 32, 5 )
@@ -602,6 +603,9 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 } ]
 0/z_index = 0
 
+[sub_resource type="RectangleShape2D" id=96]
+extents = Vector2( 10, 31 )
+
 [node name="Cave" type="Node2D"]
 
 [node name="Background" type="Sprite" parent="."]
@@ -621,7 +625,7 @@ tile_data = PoolIntArray( -458764, 0, 0, -458763, 0, 5, -458762, 0, 196609, -458
 [node name="Player" parent="YSort" groups=[
 "Player",
 ] instance=ExtResource( 4 )]
-position = Vector2( -288, -200 )
+position = Vector2( -287, -203 )
 collision_layer = 2147483650
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
@@ -637,7 +641,7 @@ shadow_enabled = true
 shadow_buffer_size = 16384
 
 [node name="Camera2D" type="Camera2D" parent="YSort"]
-position = Vector2( -288, -200 )
+position = Vector2( -287, -203 )
 current = true
 smoothing_enabled = true
 script = ExtResource( 3 )
@@ -764,6 +768,21 @@ position = Vector2( -105, -151 )
 
 [node name="Golem" parent="YSort/Enemies" instance=ExtResource( 11 )]
 
+[node name="Golem2" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( 302, -150 )
+
+[node name="Golem3" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( 10, 350 )
+
+[node name="Golem4" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( -172, 28 )
+
+[node name="Golem5" parent="YSort/Enemies" instance=ExtResource( 11 )]
+position = Vector2( 406, 68 )
+
+[node name="GolemBoss" parent="YSort/Enemies" instance=ExtResource( 12 )]
+position = Vector2( 555, 252 )
+
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 visible = false
 color = Color( 0, 0, 0, 1 )
@@ -779,3 +798,11 @@ margin_bottom = 15.0
 [node name="Control" parent="CanvasLayer" instance=ExtResource( 9 )]
 visible = false
 position = Vector2( 135, 138 )
+
+[node name="BossFightTrigger" type="Area2D" parent="."]
+position = Vector2( 310, 320 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BossFightTrigger"]
+shape = SubResource( 96 )
+
+[connection signal="body_entered" from="BossFightTrigger" to="YSort/Enemies/GolemBoss" method="_on_BossFightTrigger_body_entered"]

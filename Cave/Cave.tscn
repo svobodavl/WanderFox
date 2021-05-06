@@ -625,7 +625,7 @@ tile_data = PoolIntArray( -458764, 0, 0, -458763, 0, 5, -458762, 0, 196609, -458
 [node name="Player" parent="YSort" groups=[
 "Player",
 ] instance=ExtResource( 4 )]
-position = Vector2( -287, -203 )
+position = Vector2( 275, 313 )
 collision_layer = 2147483650
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
@@ -641,7 +641,7 @@ shadow_enabled = true
 shadow_buffer_size = 16384
 
 [node name="Camera2D" type="Camera2D" parent="YSort"]
-position = Vector2( -287, -203 )
+position = Vector2( 275, 313 )
 current = true
 smoothing_enabled = true
 script = ExtResource( 3 )

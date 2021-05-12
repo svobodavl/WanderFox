@@ -13,7 +13,6 @@
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 9 )
-shader_param/active = false
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 5.0
@@ -785,7 +784,6 @@ hframes = 60
 frame = 36
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 rotation = -1.5708
 shape = SubResource( 2 )
 
@@ -845,17 +843,15 @@ anims/Start = SubResource( 49 )
 anims/Stop = SubResource( 50 )
 
 [node name="Interactable" parent="." instance=ExtResource( 10 )]
-collision_layer = 0
 collision_mask = 2147483712
 
 [node name="CollisionShape2D" parent="Interactable" index="0"]
 shape = SubResource( 51 )
+
 [connection signal="area_entered" from="Hurtboxes" to="." method="_on_Hurtboxes_area_entered"]
 [connection signal="invincibility_ended" from="Hurtboxes" to="." method="_on_Hurtboxes_invincibility_ended"]
 [connection signal="invincibility_started" from="Hurtboxes" to="." method="_on_Hurtboxes_invincibility_started"]
 
 [editable path="HitboxPivot/SwordHitbox"]
-
 [editable path="Hurtboxes"]
-
 [editable path="Interactable"]

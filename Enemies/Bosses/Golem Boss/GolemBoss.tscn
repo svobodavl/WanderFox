@@ -176,7 +176,7 @@ position = Vector2( -84, -87 )
 scale = Vector2( 2.75, 2.75 )
 frames = SubResource( 25 )
 animation = "Idle"
-frame = 3
+frame = 2
 playing = true
 offset = Vector2( 30.5455, 10.5455 )
 flip_h = true
@@ -207,8 +207,8 @@ anims/Stop = SubResource( 29 )
 [node name="ActionCooldown" type="Timer" parent="."]
 wait_time = 2.5
 
-[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_Sprite_animation_finished"]
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="area_entered" from="Hurtboxes" to="." method="_on_Hurtboxes_area_entered"]
 [connection signal="invincibility_ended" from="Hurtboxes" to="." method="_on_Hurtboxes_invincibility_ended"]
 [connection signal="invincibility_started" from="Hurtboxes" to="." method="_on_Hurtboxes_invincibility_started"]

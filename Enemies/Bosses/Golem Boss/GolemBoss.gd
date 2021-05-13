@@ -8,6 +8,7 @@ onready var hurtbox = $Hurtboxes
 onready var animationPlayer = $AnimationPlayer
 
 const EnemyDeathEffect = preload("res://Effects/Effect Scenes/EnemyDeathEffect.tscn")
+const Golem = preload("res://Enemies/Golem/Golem.tscn")
 
 var state = IDLE
 var BossFightTriggered = false
@@ -15,6 +16,7 @@ var Idle = false
 var Defend = false
 var Spawn_Enemy = false
 var Throw = false
+var GolemSpawned = false
 
 enum {
 	IDLE
@@ -36,6 +38,7 @@ func _physics_process(delta):
 				Defend = false
 				Spawn_Enemy = false
 				Throw = false
+				GolemSpawned = false
 					
 			DEFEND:
 				print("Defend state")
@@ -44,7 +47,9 @@ func _physics_process(delta):
 				Idle = false
 				Spawn_Enemy = false
 				Throw = false
-					
+				GolemSpawned = false
+				hurtbox.start_invincibility(0.1)
+				
 			SPAWN_ENEMY:
 				print("Spawn_Enemy state")
 				animatedSprite.play("Spawn Enemy Attack")
@@ -52,7 +57,12 @@ func _physics_process(delta):
 				Defend = false
 				Idle = false
 				Throw = false
-					
+				if GolemSpawned == false:
+					var golem = Golem.instance()
+					get_parent().add_child(golem)
+					golem.global_position = global_position
+					GolemSpawned = true
+				
 			THROW:
 				print("Throw state")
 				animatedSprite.play("Throw Attack")
@@ -60,6 +70,7 @@ func _physics_process(delta):
 				Defend = false
 				Spawn_Enemy = false
 				Idle = false
+				GolemSpawned = false
 
 func pick_random_state(state_list):
 	state_list.shuffle()

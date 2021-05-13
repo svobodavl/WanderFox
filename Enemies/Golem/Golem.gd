@@ -118,7 +118,7 @@ func bat_can_see_player():
 func _on_AttackZone_body_entered(body):
 	sprite.play("Attack")
 	ACCELERATION = 1600
-	MAX_SPEED = 150
+	MAX_SPEED = 100
 	dashTimer.start()
 
 func _on_DashTimer_timeout():

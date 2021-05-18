@@ -101,5 +101,6 @@ anims/Opacity = SubResource( 2 )
 
 [node name="TextBoxOpacity" type="AnimationPlayer" parent="."]
 anims/Opacity = SubResource( 3 )
+
 [connection signal="timeout" from="DialogBox/Timer" to="DialogBox/RichTextLabel" method="_on_Timer_timeout"]
 [connection signal="animation_finished" from="TextBoxOpacity" to="." method="_on_TextBoxOpacity_animation_finished"]

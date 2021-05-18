@@ -110,7 +110,6 @@ func _on_Hurtboxes_invincibility_ended():
 func has_bush_ability_on():
 	MAX_SPEED = 50
 	ACCELERATION = 250
-	
 	get_tree().call_group("Bats", "bat_cant_see_player")
 	emit_signal("BatCantSeePlayer")
 	

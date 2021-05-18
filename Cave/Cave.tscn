@@ -15,12 +15,12 @@
 [ext_resource path="res://Shaders/WhiteColorShader.shader" type="Shader" id=13]
 [ext_resource path="res://Cave/Cave.gd" type="Script" id=14]
 
-[sub_resource type="ShaderMaterial" id=96]
+[sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
 shader = ExtResource( 13 )
 shader_param/active = false
 
-[sub_resource type="RectangleShape2D" id=97]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 10, 31 )
 
 [node name="Cave" type="Node2D"]
@@ -202,7 +202,7 @@ position = Vector2( 406, 68 )
 position = Vector2( 542, 321 )
 
 [node name="AnimatedSprite" parent="YSort/Enemies/GolemBoss" index="0"]
-material = SubResource( 96 )
+material = SubResource( 1 )
 frame = 2
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
@@ -225,10 +225,10 @@ position = Vector2( 135, 138 )
 position = Vector2( 310, 320 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossFightTrigger"]
-shape = SubResource( 97 )
+shape = SubResource( 2 )
 
-[connection signal="body_entered" from="BossFightTrigger" to="YSort/Enemies/GolemBoss" method="_on_BossFightTrigger_body_entered"]
 [connection signal="body_entered" from="BossFightTrigger" to="." method="_on_BossFightTrigger_body_entered"]
+[connection signal="body_entered" from="BossFightTrigger" to="YSort/Enemies/GolemBoss" method="_on_BossFightTrigger_body_entered"]
 
 [editable path="YSort/Enemies/GolemBoss"]
 [editable path="YSort/Enemies/GolemBoss/Hurtboxes"]

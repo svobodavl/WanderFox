@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Inventory.png-722b0520dfa81ebf3c0f68a8656157df.stex"
+path="res://.import/HealthPotionFull.png-158d95b0f7a9744356626e8e75b6d7db.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/Inventory.png"
-dest_files=[ "res://.import/Inventory.png-722b0520dfa81ebf3c0f68a8656157df.stex" ]
+source_file="res://Objects/HealthPotions/HealthPotionFull.png"
+dest_files=[ "res://.import/HealthPotionFull.png-158d95b0f7a9744356626e8e75b6d7db.stex" ]
 
 [params]
 

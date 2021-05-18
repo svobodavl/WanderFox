@@ -92,6 +92,9 @@ func pick_random_state(state_list):
 
 func _on_Hurtboxes_area_entered(area):
 	stats.health -= area.damage
+	if randf() > 0.8:
+		print("critical hit")
+		stats.health -= area.damage * 3
 	knockback = area.knockback_vector * 120
 	hurtbox.create_hit_effect()
 	hurtbox.start_invincibility(0.4)

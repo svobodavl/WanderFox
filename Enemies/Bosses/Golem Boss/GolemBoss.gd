@@ -102,7 +102,10 @@ func _on_AnimatedSprite_animation_finished():
 
 
 func _on_Hurtboxes_area_entered(area):
-	stats.health -= 1
+	stats.health -= area.damage
+	if randf() > 0.8:
+		print("critical hit")
+		stats.health -= area.damage * 3
 	hurtbox.create_hit_effect()
 	hurtbox.start_invincibility(0.4)
 	

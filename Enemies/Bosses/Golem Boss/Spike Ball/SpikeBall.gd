@@ -7,6 +7,8 @@ var move = Vector2.ZERO
 var SPEED = 1500
 
 onready var deathTimer = $DeathTimer
+onready var stats = $Stats
+onready var hurtbox = $Hurtboxes
 
 func _ready():
 	deathTimer.start()
@@ -15,7 +17,7 @@ func _physics_process(delta):
 	move = Vector2.ZERO
 	
 	if player != null:
-		 move = position.direction_to(player.position) * SPEED
+		move = position.direction_to(player.position) * SPEED
 	else:
 		move = Vector2.ZERO
 		

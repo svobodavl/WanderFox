@@ -91,7 +91,7 @@ func pick_random_state(state_list):
 	return state_list.pop_front()
 
 func _on_Hurtboxes_area_entered(area):
-	stats.health -= area.damage
+	stats.health -= 1
 	if randf() > 0.8:
 		print("critical hit")
 		stats.health -= area.damage * 3

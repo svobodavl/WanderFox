@@ -19,6 +19,7 @@ var Spawn_Enemy = false
 var Throw = false
 var GolemSpawned = false
 var SpikeBallSpawned = false
+var TimerStopped = false
 
 enum {
 	IDLE
@@ -28,7 +29,9 @@ enum {
 }
 
 func _ready():
-	pass
+	actionCooldown.set_wait_time(2.5)
+	actionCooldown.set_one_shot(false)
+	actionCooldown.connect("timeout", self, "states")
 
 func _physics_process(delta):
 	if BossFightTriggered:
@@ -87,19 +90,18 @@ func pick_random_state(state_list):
 	state_list.shuffle()
 	return state_list.pop_front()
 
-func _on_AnimatedSprite_animation_finished():
+func states():
 	if Idle == true:
 		state = pick_random_state([DEFEND, SPAWN_ENEMY, THROW])
 		
 	if Defend == true:
 		state = pick_random_state([SPAWN_ENEMY, THROW, IDLE])
-		
+			
 	if Spawn_Enemy == true:
 		state = pick_random_state([DEFEND, THROW, IDLE])
-		
+			
 	if Throw == true:
 		state = pick_random_state([DEFEND, SPAWN_ENEMY, IDLE])
-
 
 func _on_Hurtboxes_area_entered(area):
 	stats.health -= area.damage

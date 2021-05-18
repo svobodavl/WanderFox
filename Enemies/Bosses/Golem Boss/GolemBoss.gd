@@ -9,6 +9,7 @@ onready var animationPlayer = $AnimationPlayer
 
 const EnemyDeathEffect = preload("res://Effects/Effect Scenes/EnemyDeathEffect.tscn")
 const Golem = preload("res://Enemies/Golem/Golem.tscn")
+const SpikeBall = preload("res://Enemies/Bosses/Golem Boss/Spike Ball/SpikeBall.tscn")
 
 var state = IDLE
 var BossFightTriggered = false
@@ -17,6 +18,7 @@ var Defend = false
 var Spawn_Enemy = false
 var Throw = false
 var GolemSpawned = false
+var SpikeBallSpawned = false
 
 enum {
 	IDLE
@@ -39,6 +41,7 @@ func _physics_process(delta):
 				Spawn_Enemy = false
 				Throw = false
 				GolemSpawned = false
+				SpikeBallSpawned = false
 					
 			DEFEND:
 				print("Defend state")
@@ -48,6 +51,7 @@ func _physics_process(delta):
 				Spawn_Enemy = false
 				Throw = false
 				GolemSpawned = false
+				SpikeBallSpawned = false
 				hurtbox.start_invincibility(0.1)
 				
 			SPAWN_ENEMY:
@@ -57,6 +61,7 @@ func _physics_process(delta):
 				Defend = false
 				Idle = false
 				Throw = false
+				SpikeBallSpawned = false
 				if GolemSpawned == false:
 					var golem = Golem.instance()
 					get_parent().add_child(golem)
@@ -66,11 +71,17 @@ func _physics_process(delta):
 			THROW:
 				print("Throw state")
 				animatedSprite.play("Throw Attack")
+				if SpikeBallSpawned == false:
+					var spikeBall = SpikeBall.instance()
+					get_parent().add_child(spikeBall)
+					spikeBall.global_position = global_position
+					SpikeBallSpawned = true
 				Throw = true
 				Defend = false
 				Spawn_Enemy = false
 				Idle = false
 				GolemSpawned = false
+				
 
 func pick_random_state(state_list):
 	state_list.shuffle()

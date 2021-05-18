@@ -176,7 +176,7 @@ material = SubResource( 1 )
 position = Vector2( 0, -9 )
 frames = SubResource( 16 )
 animation = "Animate"
-frame = 2
+frame = 3
 playing = true
 offset = Vector2( 0, -12 )
 

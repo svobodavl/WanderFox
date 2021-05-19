@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=2]
+[gd_scene load_steps=70 format=2]
 
 [ext_resource path="res://World/Bush/Bush.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://World/Stairs.jpg" type="Texture" id=14]
 [ext_resource path="res://World/NextLevelGateway.gd" type="Script" id=15]
 [ext_resource path="res://UI/Inventory/Inventory.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Player/HealthPotion/RedPotionFull.tscn" type="PackedScene" id=17]
 
 [sub_resource type="TileSet" id=1]
 resource_local_to_scene = true
@@ -919,7 +920,7 @@ position = Vector2( -287, 191 )
 
 [node name="Sprite" parent="YSort/Bats/Bat" index="0"]
 material = SubResource( 51 )
-frame = 4
+frame = 3
 
 [node name="Bat8" parent="YSort/Bats" groups=[
 "Bats",
@@ -1006,6 +1007,11 @@ position = Vector2( 617, 349 )
 scale = Vector2( 0.65625, 0.65625 )
 texture = ExtResource( 14 )
 
+[node name="RedPotionFull" parent="YSort" instance=ExtResource( 17 )]
+position = Vector2( 66, 47 )
+frame = 3
+marker = Vector2( 66, 47 )
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HealthUI" parent="CanvasLayer" instance=ExtResource( 8 )]
@@ -1019,6 +1025,7 @@ visible = false
 position = Vector2( 135, 138 )
 
 [node name="Inventory" parent="CanvasLayer" instance=ExtResource( 16 )]
+visible = false
 
 [connection signal="BatCanSeePlayer" from="YSort/Player" to="YSort/Bats/Bat" method="_on_Player_BatCanSeePlayer"]
 [connection signal="BatCantSeePlayer" from="YSort/Player" to="YSort/Bats/Bat" method="_on_Player_BatCantSeePlayer"]

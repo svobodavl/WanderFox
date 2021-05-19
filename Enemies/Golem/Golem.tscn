@@ -246,8 +246,8 @@ one_shot = true
 [connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="area_entered" from="AttackZone" to="." method="_on_AttackZone_area_entered"]
-[connection signal="body_entered" from="AttackZone" to="AttackZone" method="_on_AttackZone_body_entered"]
 [connection signal="body_entered" from="AttackZone" to="." method="_on_AttackZone_body_entered"]
+[connection signal="body_entered" from="AttackZone" to="AttackZone" method="_on_AttackZone_body_entered"]
 [connection signal="body_exited" from="AttackZone" to="." method="_on_AttackZone_body_exited"]
 [connection signal="timeout" from="DashTimer" to="." method="_on_DashTimer_timeout"]
 

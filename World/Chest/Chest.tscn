@@ -5,7 +5,6 @@
 [ext_resource path="res://World/Chest/Chest.gd" type="Script" id=3]
 [ext_resource path="res://Overlap/Interactable.gd" type="Script" id=4]
 
-
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 21, 18 )
@@ -87,6 +86,7 @@ shape = SubResource( 6 )
 
 [node name="Disable" type="AnimationPlayer" parent="Interactable"]
 anims/Disable = SubResource( 7 )
+
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="Interactable" method="_on_AnimationPlayer_animation_finished"]

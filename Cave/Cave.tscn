@@ -227,8 +227,8 @@ position = Vector2( 310, 320 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossFightTrigger"]
 shape = SubResource( 2 )
 
-[connection signal="body_entered" from="BossFightTrigger" to="." method="_on_BossFightTrigger_body_entered"]
 [connection signal="body_entered" from="BossFightTrigger" to="YSort/Enemies/GolemBoss" method="_on_BossFightTrigger_body_entered"]
+[connection signal="body_entered" from="BossFightTrigger" to="." method="_on_BossFightTrigger_body_entered"]
 
 [editable path="YSort/Enemies/GolemBoss"]
 [editable path="YSort/Enemies/GolemBoss/Hurtboxes"]

@@ -122,7 +122,7 @@ material = SubResource( 1 )
 position = Vector2( -1, 0 )
 frames = SubResource( 11 )
 animation = "Fly"
-frame = 1
+frame = 3
 playing = true
 offset = Vector2( 0, -12 )
 
@@ -134,9 +134,8 @@ visible = false
 shape = SubResource( 12 )
 
 [node name="Hurtboxes" parent="." instance=ExtResource( 3 )]
-visible = false
 collision_layer = 8
-collision_mask = 2147483648
+collision_mask = 2147483649
 
 [node name="CollisionShape2D" parent="Hurtboxes" index="0"]
 position = Vector2( 0, -13 )

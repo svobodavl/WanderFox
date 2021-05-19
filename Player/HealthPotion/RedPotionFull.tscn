@@ -48,7 +48,7 @@ radius = 3.5
 
 [node name="RedPotionFull" type="AnimatedSprite"]
 frames = SubResource( 9 )
-frame = 1
+frame = 3
 playing = true
 script = ExtResource( 1 )
 
@@ -61,5 +61,4 @@ position = Vector2( 0, 2.673 )
 shape = SubResource( 10 )
 
 [connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]
-[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

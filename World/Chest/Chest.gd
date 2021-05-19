@@ -2,6 +2,7 @@ extends StaticBody2D
 
 var CanOpen = false
 var DialogBox = load("res://UI/Dialogue/Dialog.tscn")
+var damage = 0
 
 export var path : NodePath
 
@@ -18,9 +19,6 @@ func _ready():
 	animationPlayer.stop()
 	animatedSprite.stop()
 
-func _on_Interactable_area_entered(area):
-	CanOpen = true
-	print("can interact")
 	
 func _process(delta):
 	if CanOpen:
@@ -39,6 +37,13 @@ func _on_AnimatedSprite_animation_finished():
 	get_node("../../../CanvasLayer").add_child(dialogBox)
 	dialogBox.position = Vector2(160, 170)
 
-func _on_Interactable_area_exited(area):
-	CanOpen = false
 	
+
+
+func _on_Interactable2_area_entered(area):
+	CanOpen = true
+	print("can interact")
+
+
+func _on_Interactable2_area_exited(area):
+	CanOpen = false

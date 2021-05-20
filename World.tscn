@@ -952,7 +952,6 @@ position = Vector2( -287, 191 )
 
 [node name="Sprite" parent="YSort/Bats/Bat" index="0"]
 material = SubResource( 51 )
-frame = 0
 
 [node name="Bat8" parent="YSort/Bats" groups=[
 "Bats",
@@ -1043,6 +1042,7 @@ position = Vector2( -1, 0 )
 "HealthPotion",
 ] instance=ExtResource( 17 )]
 position = Vector2( -1, 0 )
+frame = 5
 max_jump_height = 40
 max_jumps = 2
 jump_time = 1.0
@@ -1061,6 +1061,7 @@ anims/Open = SubResource( 53 )
 "HealthPotion",
 ] instance=ExtResource( 17 )]
 position = Vector2( -1, 0 )
+frame = 5
 max_jump_height = 40
 max_jumps = 2
 jump_time = 1.0
@@ -1093,18 +1094,21 @@ margin_bottom = 15.0
 ] instance=ExtResource( 16 )]
 visible = false
 
+[node name="RedPotionFull" parent="CanvasLayer/Inventory" index="3"]
+frame = 1
+
 [connection signal="BatCanSeePlayer" from="YSort/Player" to="YSort/Bats/Bat" method="_on_Player_BatCanSeePlayer"]
 [connection signal="BatCantSeePlayer" from="YSort/Player" to="YSort/Bats/Bat" method="_on_Player_BatCantSeePlayer"]
 [connection signal="HasBushOn" from="YSort/Bushes/Bush32" to="YSort/Player" method="_on_Bush4_HasBushOn"]
 [connection signal="HasBushOn" from="YSort/Bushes/Bush33" to="YSort/Player" method="_on_Bush4_HasBushOn"]
-[connection signal="chest_opened" from="YSort/Chests/Chest3" to="CanvasLayer/Inventory" method="_on_Chest3_chest_opened"]
-[connection signal="chest_opened" from="YSort/Chests/Chest4" to="CanvasLayer/Inventory" method="_on_Chest3_chest_opened"]
 [connection signal="chest_opened" from="YSort/Chests/Chest4" to="YSort/Chests/Chest4/RedPotionFull" method="_on_Chest4_chest_opened"]
+[connection signal="chest_opened" from="YSort/Chests/Chest4" to="CanvasLayer/Inventory" method="_on_Chest3_chest_opened"]
 [connection signal="potion_picked_up" from="YSort/Chests/Chest4/RedPotionFull" to="CanvasLayer/Inventory" method="_on_RedPotionFull_potion_picked_up"]
-[connection signal="chest_opened" from="YSort/Chests/Chest5" to="CanvasLayer/Inventory" method="_on_Chest3_chest_opened"]
 [connection signal="chest_opened" from="YSort/Chests/Chest5" to="YSort/Chests/Chest5/RedPotionFull" method="_on_Chest4_chest_opened"]
+[connection signal="chest_opened" from="YSort/Chests/Chest5" to="CanvasLayer/Inventory" method="_on_Chest3_chest_opened"]
 [connection signal="potion_picked_up" from="YSort/Chests/Chest5/RedPotionFull" to="CanvasLayer/Inventory" method="_on_RedPotionFull_potion_picked_up"]
 [connection signal="area_entered" from="YSort/NextLevelGateway" to="YSort/NextLevelGateway" method="_on_NextLevelGateway_area_entered"]
+[connection signal="pressed" from="CanvasLayer/Inventory/RedPotionFull/Button" to="YSort/Player" method="_on_Button_pressed"]
 
 [editable path="YSort/Camera2D"]
 [editable path="YSort/Player"]
@@ -1122,3 +1126,4 @@ visible = false
 [editable path="YSort/Chests/Chest4/Interactable2"]
 [editable path="YSort/Chests/Chest5"]
 [editable path="YSort/Chests/Chest5/Interactable2"]
+[editable path="CanvasLayer/Inventory"]

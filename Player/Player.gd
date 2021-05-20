@@ -119,3 +119,6 @@ func doesnt_have_bush_ability_on():
 	print("doesnt have bush")
 	get_tree().call_group("Bats", "bat_can_see_player")
 	emit_signal("BatCanSeePlayer")
+
+func _on_Button_pressed():
+	stats.health = stats.health + 1

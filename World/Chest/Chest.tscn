@@ -37,7 +37,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 8, 9 )
+extents = Vector2( 9, 9 )
 
 [sub_resource type="CircleShape2D" id=9]
 radius = 21.0
@@ -57,6 +57,7 @@ root_node = NodePath("../AnimatedSprite")
 anims/Open = SubResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -1, 0 )
 shape = SubResource( 8 )
 
 [node name="Interactable2" parent="." instance=ExtResource( 2 )]

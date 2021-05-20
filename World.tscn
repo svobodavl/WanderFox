@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=2]
+[gd_scene load_steps=71 format=2]
 
 [ext_resource path="res://World/Bush/Bush.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://World/Stairs.jpg" type="Texture" id=14]
 [ext_resource path="res://World/NextLevelGateway.gd" type="Script" id=15]
 [ext_resource path="res://UI/Inventory/Inventory.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Player/HealthPotion/RedPotionFull.tscn" type="PackedScene" id=17]
 
 [sub_resource type="TileSet" id=1]
 resource_local_to_scene = true
@@ -516,7 +517,7 @@ tracks/0/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="CircleShape2D" id=54]
+[sub_resource type="CircleShape2D" id=53]
 radius = 23.3452
 
 [node name="World" type="Node2D"]
@@ -974,7 +975,7 @@ position = Vector2( 459, 24 )
 [node name="Bat14" parent="YSort/Bats" groups=[
 "Bats",
 ] instance=ExtResource( 7 )]
-position = Vector2( 287, 116 )
+position = Vector2( 337, 160 )
 
 [node name="Bat13" parent="YSort/Bats" groups=[
 "Bats",
@@ -1006,13 +1007,28 @@ position = Vector2( -215, -138 )
 [node name="Chest3" parent="YSort/Chests" instance=ExtResource( 11 )]
 position = Vector2( 275, 354 )
 path = NodePath("../../../CanvasLayer")
+Item = ExtResource( 12 )
+ItemPosition = Vector2( 160, 170 )
 
 [node name="Chest4" parent="YSort/Chests" instance=ExtResource( 11 )]
-position = Vector2( 299, -328 )
-path = NodePath("../..")
+position = Vector2( 292, 102 )
+path = NodePath("../../..")
+Item = ExtResource( 17 )
+ItemPosition = Vector2( 321, 111 )
 
 [node name="AnimationPlayer" parent="YSort/Chests/Chest4" index="1"]
 anims/Open = SubResource( 52 )
+
+[node name="CollisionShape2D" parent="YSort/Chests/Chest4/Interactable2" index="0"]
+position = Vector2( -1, 0 )
+
+[node name="RedPotionFull" parent="YSort/Chests/Chest4" instance=ExtResource( 17 )]
+position = Vector2( -1, 0 )
+frame = 7
+max_jump_height = 40
+max_jumps = 2
+jump_time = 1.0
+marker = Vector2( 321, 111 )
 
 [node name="NextLevelGateway" type="Area2D" parent="YSort"]
 position = Vector2( 617, 348 )
@@ -1021,7 +1037,7 @@ collision_mask = 0
 script = ExtResource( 15 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/NextLevelGateway"]
-shape = SubResource( 54 )
+shape = SubResource( 53 )
 
 [node name="Stairs" type="Sprite" parent="YSort"]
 position = Vector2( 617, 349 )
@@ -1048,6 +1064,7 @@ visible = false
 [connection signal="HasBushOn" from="YSort/Bushes/Bush32" to="YSort/Player" method="_on_Bush4_HasBushOn"]
 [connection signal="HasBushOn" from="YSort/Bushes/Bush33" to="YSort/Player" method="_on_Bush4_HasBushOn"]
 [connection signal="chest_opened" from="YSort/Chests/Chest3" to="CanvasLayer/Inventory" method="_on_Chest3_chest_opened"]
+[connection signal="chest_opened" from="YSort/Chests/Chest4" to="YSort/Chests/Chest4/RedPotionFull" method="_on_Chest4_chest_opened"]
 [connection signal="chest_opened" from="YSort/Chests/Chest4" to="CanvasLayer/Inventory" method="_on_Chest3_chest_opened"]
 [connection signal="area_entered" from="YSort/NextLevelGateway" to="YSort/NextLevelGateway" method="_on_NextLevelGateway_area_entered"]
 

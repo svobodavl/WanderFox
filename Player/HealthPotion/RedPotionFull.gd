@@ -3,6 +3,7 @@ extends AnimatedSprite
 onready var tween = $Tween
 onready var starting_pos = global_position
 onready var trail = $"../Trail"
+onready var collision = $Interactable/CollisionShape2D
 
 export(int) var max_jump_height = 48
 export(float) var jump_decrease = 0.5
@@ -13,7 +14,8 @@ var end_pos
 var i
 
 func _ready():
-		self.drop(marker)
+	self.visible = false
+	collision.disabled = true
 
 func drop(e):
 	global_position = starting_pos
@@ -43,6 +45,10 @@ func _on_Tween_tween_all_completed():
 	if i < max_jumps:
 		_bounce()
 
-func _on_Area2D_body_entered(body):
-	print("picked up health potion")
-	queue_free()
+func _on_Chest4_chest_opened():
+	self.drop(marker)
+	self.visible = true
+	collision.disabled = false
+
+func _on_Interactable_area_entered(area):
+	print("Health potion picked up")

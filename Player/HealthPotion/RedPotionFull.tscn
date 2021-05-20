@@ -52,7 +52,7 @@ resource_name = "Collision disable"
 
 [node name="RedPotionFull" type="AnimatedSprite"]
 frames = SubResource( 9 )
-frame = 4
+frame = 6
 playing = true
 script = ExtResource( 1 )
 

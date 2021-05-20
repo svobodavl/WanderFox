@@ -517,7 +517,7 @@ tracks/0/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=54]
+[sub_resource type="Animation" id=53]
 resource_name = "Open"
 length = 0.1
 tracks/0/type = "value"
@@ -533,7 +533,7 @@ tracks/0/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="CircleShape2D" id=53]
+[sub_resource type="CircleShape2D" id=54]
 radius = 23.3452
 
 [node name="World" type="Node2D"]
@@ -952,6 +952,7 @@ position = Vector2( -287, 191 )
 
 [node name="Sprite" parent="YSort/Bats/Bat" index="0"]
 material = SubResource( 51 )
+frame = 0
 
 [node name="Bat8" parent="YSort/Bats" groups=[
 "Bats",
@@ -991,7 +992,7 @@ position = Vector2( 459, 24 )
 [node name="Bat14" parent="YSort/Bats" groups=[
 "Bats",
 ] instance=ExtResource( 7 )]
-position = Vector2( 337, 160 )
+position = Vector2( 426, 209 )
 
 [node name="Bat13" parent="YSort/Bats" groups=[
 "Bats",
@@ -1027,7 +1028,7 @@ Item = ExtResource( 12 )
 ItemPosition = Vector2( 160, 170 )
 
 [node name="Chest4" parent="YSort/Chests" instance=ExtResource( 11 )]
-position = Vector2( 292, 102 )
+position = Vector2( 283, 103 )
 path = NodePath("../../..")
 Item = ExtResource( 17 )
 ItemPosition = Vector2( 321, 111 )
@@ -1042,26 +1043,24 @@ position = Vector2( -1, 0 )
 "HealthPotion",
 ] instance=ExtResource( 17 )]
 position = Vector2( -1, 0 )
-frame = 2
 max_jump_height = 40
 max_jumps = 2
 jump_time = 1.0
 marker = Vector2( 321, 111 )
 
 [node name="Chest5" parent="YSort/Chests" instance=ExtResource( 11 )]
-position = Vector2( 234, 48 )
+position = Vector2( 216, 120 )
 path = NodePath("../../..")
 Item = ExtResource( 17 )
 ItemPosition = Vector2( 321, 111 )
 
 [node name="AnimationPlayer" parent="YSort/Chests/Chest5" index="1"]
-anims/Open = SubResource( 54 )
+anims/Open = SubResource( 53 )
 
 [node name="RedPotionFull" parent="YSort/Chests/Chest5" groups=[
 "HealthPotion",
 ] instance=ExtResource( 17 )]
 position = Vector2( -1, 0 )
-frame = 2
 max_jump_height = 40
 max_jumps = 2
 jump_time = 1.0
@@ -1074,7 +1073,7 @@ collision_mask = 0
 script = ExtResource( 15 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/NextLevelGateway"]
-shape = SubResource( 53 )
+shape = SubResource( 54 )
 
 [node name="Stairs" type="Sprite" parent="YSort"]
 position = Vector2( 617, 349 )
@@ -1088,10 +1087,6 @@ margin_left = 4.0
 margin_top = 4.0
 margin_right = 63.0
 margin_bottom = 15.0
-
-[node name="Control" parent="CanvasLayer" instance=ExtResource( 12 )]
-visible = false
-position = Vector2( 135, 138 )
 
 [node name="Inventory" parent="CanvasLayer" groups=[
 "Inventory",

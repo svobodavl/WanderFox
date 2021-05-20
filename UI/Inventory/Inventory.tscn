@@ -94,7 +94,7 @@ __meta__ = {
 [node name="RedPotionFull" type="AnimatedSprite" parent="."]
 position = Vector2( 5, 8 )
 frames = SubResource( 9 )
-frame = 5
+frame = 1
 playing = true
 offset = Vector2( 165, 47 )
 

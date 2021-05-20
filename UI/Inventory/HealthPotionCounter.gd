@@ -8,7 +8,3 @@ func _on_Inventory_add_health_counter():
 	print(health_potion_counter)
 	self.clear()
 	append_bbcode(health_potion_counterText)
-
-
-func _on_Button_pressed():
-	print("button pressed")

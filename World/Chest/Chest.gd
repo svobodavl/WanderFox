@@ -41,7 +41,6 @@ func _on_AnimatedSprite_animation_finished():
 
 func _on_Interactable2_area_entered(area):
 	CanOpen = true
-	print("can interact")
 
 
 func _on_Interactable2_area_exited(area):

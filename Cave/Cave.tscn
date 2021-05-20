@@ -75,7 +75,7 @@ position = Vector2( 648, 392 )
 [node name="Rocks" type="YSort" parent="YSort"]
 
 [node name="Rocks" parent="YSort/Rocks" instance=ExtResource( 6 )]
-position = Vector2( -188, -200 )
+position = Vector2( -185, -189 )
 
 [node name="Rocks2" parent="YSort/Rocks" instance=ExtResource( 6 )]
 position = Vector2( -255, -31 )
@@ -203,7 +203,6 @@ position = Vector2( 542, 321 )
 
 [node name="AnimatedSprite" parent="YSort/Enemies/GolemBoss" index="0"]
 material = SubResource( 1 )
-frame = 2
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 visible = false
@@ -227,8 +226,8 @@ position = Vector2( 310, 320 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossFightTrigger"]
 shape = SubResource( 2 )
 
-[connection signal="body_entered" from="BossFightTrigger" to="YSort/Enemies/GolemBoss" method="_on_BossFightTrigger_body_entered"]
 [connection signal="body_entered" from="BossFightTrigger" to="." method="_on_BossFightTrigger_body_entered"]
+[connection signal="body_entered" from="BossFightTrigger" to="YSort/Enemies/GolemBoss" method="_on_BossFightTrigger_body_entered"]
 
 [editable path="YSort/Enemies/GolemBoss"]
 [editable path="YSort/Enemies/GolemBoss/Hurtboxes"]

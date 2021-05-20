@@ -3,11 +3,11 @@
 [ext_resource path="res://UI/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://UI/PixelFont.tres" type="DynamicFont" id=2]
 
-[sub_resource type="DynamicFontData" id=1]
+[sub_resource type="DynamicFontData" id=3]
 font_path = "res://UI/Born2bSportyV2.ttf"
 
 [sub_resource type="DynamicFont" id=2]
-font_data = SubResource( 1 )
+font_data = SubResource( 3 )
 
 [node name="MainMenu" type="MarginContainer"]
 anchor_right = 1.0

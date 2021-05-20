@@ -203,6 +203,7 @@ position = Vector2( 542, 321 )
 
 [node name="AnimatedSprite" parent="YSort/Enemies/GolemBoss" index="0"]
 material = SubResource( 1 )
+frame = 0
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 visible = false

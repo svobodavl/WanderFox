@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=2]
+[gd_scene load_steps=78 format=2]
 
 [ext_resource path="res://World/Bush/Bush.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -17,6 +17,8 @@
 [ext_resource path="res://World/NextLevelGateway.gd" type="Script" id=15]
 [ext_resource path="res://UI/Inventory/Inventory.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Player/HealthPotion/RedPotionFull.tscn" type="PackedScene" id=17]
+[ext_resource path="res://UI/Pause.gd" type="Script" id=18]
+[ext_resource path="res://UI/PixelFont.tres" type="DynamicFont" id=19]
 
 [sub_resource type="TileSet" id=55]
 resource_local_to_scene = true
@@ -536,6 +538,18 @@ tracks/0/keys = {
 [sub_resource type="CircleShape2D" id=54]
 radius = 23.3452
 
+[sub_resource type="DynamicFontData" id=108]
+font_path = "res://UI/Born2bSportyV2.ttf"
+
+[sub_resource type="DynamicFont" id=109]
+font_data = SubResource( 108 )
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://UI/Born2bSportyV2.ttf"
+
+[sub_resource type="DynamicFont" id=110]
+font_data = SubResource( 1 )
+
 [node name="World" type="Node2D"]
 
 [node name="Background" type="Sprite" parent="."]
@@ -952,7 +966,6 @@ position = Vector2( -287, 191 )
 
 [node name="Sprite" parent="YSort/Bats/Bat" index="0"]
 material = SubResource( 105 )
-frame = 3
 
 [node name="Bat8" parent="YSort/Bats" groups=[
 "Bats",
@@ -1043,7 +1056,7 @@ position = Vector2( -1, 0 )
 "HealthPotion",
 ] instance=ExtResource( 17 )]
 position = Vector2( -1, 0 )
-frame = 5
+frame = 2
 max_jump_height = 40
 max_jumps = 2
 jump_time = 1.0
@@ -1062,7 +1075,7 @@ anims/Open = SubResource( 107 )
 "HealthPotion",
 ] instance=ExtResource( 17 )]
 position = Vector2( -1, 0 )
-frame = 5
+frame = 2
 max_jump_height = 40
 max_jumps = 2
 jump_time = 1.0
@@ -1096,7 +1109,94 @@ margin_bottom = 15.0
 visible = false
 
 [node name="RedPotionFull" parent="CanvasLayer/Inventory" index="3"]
-frame = 1
+frame = 6
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="Pause" type="Control" parent="CanvasLayer2"]
+pause_mode = 2
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BlackOverlay" type="ColorRect" parent="CanvasLayer2/Pause"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.419608 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer2/Pause"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer2/Pause/MarginContainer"]
+margin_right = 320.0
+margin_bottom = 180.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer2/Pause/MarginContainer/CenterContainer"]
+margin_left = 118.0
+margin_top = 64.0
+margin_right = 202.0
+margin_bottom = 116.0
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer2/Pause/MarginContainer/CenterContainer/VBoxContainer"]
+margin_right = 84.0
+margin_bottom = 32.0
+
+[node name="Label" type="Label" parent="CanvasLayer2/Pause/MarginContainer/CenterContainer/VBoxContainer/CenterContainer"]
+margin_right = 84.0
+margin_bottom = 32.0
+custom_fonts/font = ExtResource( 19 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Paused"
+
+[node name="CenterContainer2" type="CenterContainer" parent="CanvasLayer2/Pause/MarginContainer/CenterContainer/VBoxContainer"]
+margin_top = 36.0
+margin_right = 84.0
+margin_bottom = 52.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer2/Pause/MarginContainer/CenterContainer/VBoxContainer/CenterContainer2"]
+margin_left = 15.0
+margin_right = 69.0
+margin_bottom = 16.0
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer2/Pause/MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
+margin_right = 54.0
+margin_bottom = 16.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer2/Pause/MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer"]
+margin_right = 54.0
+margin_bottom = 16.0
+
+[node name="Selector" type="Label" parent="CanvasLayer2/Pause/MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer"]
+margin_right = 7.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 7, 0 )
+custom_fonts/font = SubResource( 109 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = ">"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionName" type="Label" parent="CanvasLayer2/Pause/MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer"]
+margin_left = 11.0
+margin_right = 54.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 43, 0 )
+custom_fonts/font = SubResource( 110 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Quit"
 
 [connection signal="BatCanSeePlayer" from="YSort/Player" to="YSort/Bats/Bat" method="_on_Player_BatCanSeePlayer"]
 [connection signal="BatCantSeePlayer" from="YSort/Player" to="YSort/Bats/Bat" method="_on_Player_BatCantSeePlayer"]

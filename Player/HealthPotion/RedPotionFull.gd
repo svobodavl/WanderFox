@@ -10,8 +10,11 @@ export(float) var jump_decrease = 0.5
 export(int) var max_jumps = 3
 export(float) var jump_time = 0.5
 export (Vector2) var marker 
+
 var end_pos
 var i
+
+signal potion_picked_up
 
 func _ready():
 	self.visible = false
@@ -52,3 +55,5 @@ func _on_Chest4_chest_opened():
 
 func _on_Interactable_area_entered(area):
 	print("Health potion picked up")
+	get_tree().call_group("Inventory", "health_potion_picked_up")
+	queue_free()

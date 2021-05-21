@@ -15,6 +15,7 @@ enum {
 
 signal BatCantSeePlayer
 signal BatCanSeePlayer
+signal player_died
 
 var state = MOVE 
 var velocity = Vector2.ZERO
@@ -100,6 +101,8 @@ func _on_Hurtboxes_area_entered(area):
 	hurtbox.create_hit_effect()
 	var playerHurtSound = PlayerHurtSound.instance()
 	get_tree().current_scene.add_child(playerHurtSound)
+	if stats.health <= 0:
+		emit_signal("player_died")
 
 func _on_Hurtboxes_invincibility_started():
 	blinkAnimationPlayer.play("Start")

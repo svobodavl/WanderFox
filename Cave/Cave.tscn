@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Cave/CaveBackground.jpg" type="Texture" id=1]
 [ext_resource path="res://Cave/Tilesets/Cave.tres" type="TileSet" id=2]
@@ -14,6 +14,8 @@
 [ext_resource path="res://Enemies/Bosses/Golem Boss/GolemBoss.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Shaders/WhiteColorShader.shader" type="Shader" id=13]
 [ext_resource path="res://Cave/Cave.gd" type="Script" id=14]
+[ext_resource path="res://UI/Pause.gd" type="Script" id=15]
+[ext_resource path="res://UI/PixelFont.tres" type="DynamicFont" id=16]
 
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
@@ -22,6 +24,25 @@ shader_param/active = false
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 10, 31 )
+
+[sub_resource type="DynamicFontData" id=114]
+font_path = "res://UI/Born2bSportyV2.ttf"
+
+[sub_resource type="DynamicFont" id=115]
+font_data = SubResource( 114 )
+
+[sub_resource type="DynamicFont" id=116]
+size = 32
+font_data = SubResource( 114 )
+
+[sub_resource type="DynamicFontData" id=108]
+font_path = "res://UI/Born2bSportyV2.ttf"
+
+[sub_resource type="DynamicFont" id=109]
+font_data = SubResource( 108 )
+
+[sub_resource type="DynamicFont" id=111]
+font_data = SubResource( 114 )
 
 [node name="Cave" type="Node2D"]
 script = ExtResource( 14 )
@@ -203,7 +224,10 @@ position = Vector2( 542, 321 )
 
 [node name="AnimatedSprite" parent="YSort/Enemies/GolemBoss" index="0"]
 material = SubResource( 1 )
-frame = 0
+frame = 2
+
+[node name="Stats" parent="YSort/Enemies/GolemBoss" index="4"]
+max_health = 2
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 visible = false
@@ -227,8 +251,120 @@ position = Vector2( 310, 320 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossFightTrigger"]
 shape = SubResource( 2 )
 
-[connection signal="body_entered" from="BossFightTrigger" to="." method="_on_BossFightTrigger_body_entered"]
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="Pause" type="Control" parent="CanvasLayer2"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BlackOverlay" type="ColorRect" parent="CanvasLayer2/Pause"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.419608 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer2/Pause"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer2/Pause/MarginContainer"]
+margin_right = 320.0
+margin_bottom = 180.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer2/Pause/MarginContainer/CenterContainer"]
+margin_left = 10.0
+margin_top = 36.0
+margin_right = 310.0
+margin_bottom = 144.0
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer2/Pause/MarginContainer/CenterContainer/VBoxContainer"]
+margin_right = 300.0
+margin_bottom = 32.0
+
+[node name="Label" type="Label" parent="CanvasLayer2/Pause/MarginContainer/CenterContainer/VBoxContainer/CenterContainer"]
+margin_left = 49.0
+margin_right = 251.0
+margin_bottom = 32.0
+custom_fonts/font = ExtResource( 16 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "CONGRATULATIONS"
+
+[node name="CenterContainer3" type="CenterContainer" parent="CanvasLayer2/Pause/MarginContainer/CenterContainer/VBoxContainer"]
+margin_top = 36.0
+margin_right = 300.0
+margin_bottom = 52.0
+
+[node name="Label" type="Label" parent="CanvasLayer2/Pause/MarginContainer/CenterContainer/VBoxContainer/CenterContainer3"]
+margin_left = 124.0
+margin_right = 176.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 115 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "YOU WON!"
+
+[node name="CenterContainer4" type="CenterContainer" parent="CanvasLayer2/Pause/MarginContainer/CenterContainer/VBoxContainer"]
+margin_top = 56.0
+margin_right = 300.0
+margin_bottom = 88.0
+
+[node name="Label" type="Label" parent="CanvasLayer2/Pause/MarginContainer/CenterContainer/VBoxContainer/CenterContainer4"]
+margin_right = 300.0
+margin_bottom = 32.0
+custom_fonts/font = SubResource( 116 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Thank you for playing <3"
+
+[node name="CenterContainer2" type="CenterContainer" parent="CanvasLayer2/Pause/MarginContainer/CenterContainer/VBoxContainer"]
+margin_top = 92.0
+margin_right = 300.0
+margin_bottom = 108.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer2/Pause/MarginContainer/CenterContainer/VBoxContainer/CenterContainer2"]
+margin_left = 123.0
+margin_right = 177.0
+margin_bottom = 16.0
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer2/Pause/MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
+margin_right = 54.0
+margin_bottom = 16.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer2/Pause/MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer"]
+margin_right = 54.0
+margin_bottom = 16.0
+
+[node name="Selector" type="Label" parent="CanvasLayer2/Pause/MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer"]
+margin_right = 7.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 7, 0 )
+custom_fonts/font = SubResource( 109 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = ">"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionName" type="Label" parent="CanvasLayer2/Pause/MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer"]
+margin_left = 11.0
+margin_right = 54.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 43, 0 )
+custom_fonts/font = SubResource( 111 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Quit"
+
+[connection signal="boss_died" from="YSort/Enemies/GolemBoss" to="CanvasLayer2/Pause" method="_on_GolemBoss_boss_died"]
 [connection signal="body_entered" from="BossFightTrigger" to="YSort/Enemies/GolemBoss" method="_on_BossFightTrigger_body_entered"]
+[connection signal="body_entered" from="BossFightTrigger" to="." method="_on_BossFightTrigger_body_entered"]
 
 [editable path="YSort/Enemies/GolemBoss"]
 [editable path="YSort/Enemies/GolemBoss/Hurtboxes"]

@@ -21,6 +21,8 @@ var GolemSpawned = false
 var SpikeBallSpawned = false
 var TimerStopped = false
 
+signal boss_died
+
 enum {
 	IDLE
 	DEFEND
@@ -116,6 +118,7 @@ func _on_Stats_no_health():
 	var enemyDeathEffect = EnemyDeathEffect.instance()
 	get_parent().add_child(enemyDeathEffect)
 	enemyDeathEffect.global_position = global_position
+	emit_signal("boss_died")
 
 
 func _on_Hurtboxes_invincibility_started():

@@ -520,7 +520,7 @@ tracks/0/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=53]
+[sub_resource type="Animation" id=62]
 resource_name = "Open"
 length = 0.1
 tracks/0/type = "value"
@@ -695,7 +695,7 @@ position = Vector2( 485, 145 )
 [node name="Bush8" parent="YSort/Bushes" groups=[
 "Bushes",
 ] instance=ExtResource( 1 )]
-position = Vector2( -25, -4 )
+position = Vector2( -28, -5 )
 
 [node name="Bush9" parent="YSort/Bushes" groups=[
 "Bushes",
@@ -976,7 +976,6 @@ position = Vector2( -287, 191 )
 
 [node name="Sprite" parent="YSort/Bats/Bat" index="0"]
 material = SubResource( 51 )
-frame = 3
 
 [node name="Bat8" parent="YSort/Bats" groups=[
 "Bats",
@@ -1045,13 +1044,17 @@ position = Vector2( -215, -138 )
 
 [node name="Chests" type="YSort" parent="YSort"]
 
-[node name="Chest3" parent="YSort/Chests" instance=ExtResource( 11 )]
+[node name="Chest3" parent="YSort/Chests" groups=[
+"Chests",
+] instance=ExtResource( 11 )]
 position = Vector2( 275, 354 )
 path = NodePath("../../../CanvasLayer")
 Item = ExtResource( 12 )
 ItemPosition = Vector2( 160, 170 )
 
-[node name="Chest4" parent="YSort/Chests" instance=ExtResource( 11 )]
+[node name="Chest4" parent="YSort/Chests" groups=[
+"Chests",
+] instance=ExtResource( 11 )]
 position = Vector2( 283, 103 )
 path = NodePath("../../..")
 Item = ExtResource( 17 )
@@ -1067,30 +1070,31 @@ position = Vector2( -1, 0 )
 "HealthPotion",
 ] instance=ExtResource( 17 )]
 position = Vector2( -1, 0 )
-frame = 1
+frame = 3
 max_jump_height = 40
 max_jumps = 2
 jump_time = 1.0
 marker = Vector2( 321, 111 )
 
-[node name="Chest5" parent="YSort/Chests" instance=ExtResource( 11 )]
-position = Vector2( 440, -210 )
+[node name="Chest6" parent="YSort/Chests" groups=[
+"Chests",
+] instance=ExtResource( 11 )]
+position = Vector2( 384, -162 )
 path = NodePath("../../..")
 Item = ExtResource( 17 )
 ItemPosition = Vector2( 321, 111 )
 
-[node name="AnimationPlayer" parent="YSort/Chests/Chest5" index="1"]
-anims/Open = SubResource( 53 )
+[node name="AnimationPlayer" parent="YSort/Chests/Chest6" index="1"]
+anims/Open = SubResource( 62 )
 
-[node name="RedPotionFull" parent="YSort/Chests/Chest5" groups=[
+[node name="RedPotionFull" parent="YSort/Chests/Chest6" groups=[
 "HealthPotion",
 ] instance=ExtResource( 17 )]
-position = Vector2( -1, 0 )
-frame = 1
+frame = 2
 max_jump_height = 40
 max_jumps = 2
 jump_time = 1.0
-marker = Vector2( 321, 111 )
+marker = Vector2( 408, -137 )
 
 [node name="NextLevelGateway" type="Area2D" parent="YSort"]
 position = Vector2( 617, 348 )
@@ -1118,9 +1122,6 @@ margin_bottom = 15.0
 "Inventory",
 ] instance=ExtResource( 16 )]
 visible = false
-
-[node name="RedPotionFull" parent="CanvasLayer/Inventory" index="3"]
-frame = 5
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 layer = 100
@@ -1292,9 +1293,9 @@ text = "RESTART"
 [connection signal="chest_opened" from="YSort/Chests/Chest4" to="YSort/Chests/Chest4/RedPotionFull" method="_on_Chest4_chest_opened"]
 [connection signal="chest_opened" from="YSort/Chests/Chest4" to="CanvasLayer/Inventory" method="_on_Chest3_chest_opened"]
 [connection signal="potion_picked_up" from="YSort/Chests/Chest4/RedPotionFull" to="CanvasLayer/Inventory" method="_on_RedPotionFull_potion_picked_up"]
-[connection signal="chest_opened" from="YSort/Chests/Chest5" to="YSort/Chests/Chest5/RedPotionFull" method="_on_Chest4_chest_opened"]
-[connection signal="chest_opened" from="YSort/Chests/Chest5" to="CanvasLayer/Inventory" method="_on_Chest3_chest_opened"]
-[connection signal="potion_picked_up" from="YSort/Chests/Chest5/RedPotionFull" to="CanvasLayer/Inventory" method="_on_RedPotionFull_potion_picked_up"]
+[connection signal="chest_opened" from="YSort/Chests/Chest6" to="CanvasLayer/Inventory" method="_on_Chest3_chest_opened"]
+[connection signal="chest_opened" from="YSort/Chests/Chest6" to="YSort/Chests/Chest6/RedPotionFull" method="_on_Chest4_chest_opened"]
+[connection signal="potion_picked_up" from="YSort/Chests/Chest6/RedPotionFull" to="CanvasLayer/Inventory" method="_on_RedPotionFull_potion_picked_up"]
 [connection signal="area_entered" from="YSort/NextLevelGateway" to="YSort/NextLevelGateway" method="_on_NextLevelGateway_area_entered"]
 [connection signal="pressed" from="CanvasLayer/Inventory/RedPotionFull/Button" to="YSort/Player" method="_on_Button_pressed"]
 
@@ -1312,6 +1313,6 @@ text = "RESTART"
 [editable path="YSort/Chests/Chest3/Interactable2"]
 [editable path="YSort/Chests/Chest4"]
 [editable path="YSort/Chests/Chest4/Interactable2"]
-[editable path="YSort/Chests/Chest5"]
-[editable path="YSort/Chests/Chest5/Interactable2"]
+[editable path="YSort/Chests/Chest6"]
+[editable path="YSort/Chests/Chest6/Interactable2"]
 [editable path="CanvasLayer/Inventory"]

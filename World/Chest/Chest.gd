@@ -33,7 +33,6 @@ func _on_AnimatedSprite_animation_finished():
 	animatedSprite.frame = 1
 	
 	emit_signal("chest_opened")
-	get_tree().call_group("Bushes", "CanHaveAbility")
 	
 	var item = Item.instance()
 	get_node(path).add_child(item)

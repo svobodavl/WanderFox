@@ -587,7 +587,7 @@ tile_data = PoolIntArray( -524300, 0, 0, -524299, 0, 1, -524298, 0, 1, -524297, 
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Camera2D" parent="YSort" instance=ExtResource( 10 )]
-position = Vector2( 130, 43 )
+position = Vector2( 124, 44 )
 
 [node name="TopLeft" parent="YSort/Camera2D/Limits" index="0"]
 position = Vector2( -353, -239 )
@@ -598,7 +598,7 @@ position = Vector2( 672, 416 )
 [node name="Player" parent="YSort" groups=[
 "Player",
 ] instance=ExtResource( 2 )]
-position = Vector2( 130, 43 )
+position = Vector2( 124, 44 )
 collision_layer = 2147483650
 
 [node name="AnimationTree" parent="YSort/Player" index="4"]
@@ -1079,7 +1079,7 @@ position = Vector2( -1, 0 )
 "HealthPotion",
 ] instance=ExtResource( 17 )]
 position = Vector2( -1, 0 )
-frame = 0
+frame = 7
 max_jump_height = 40
 max_jumps = 2
 jump_time = 1.0
@@ -1099,7 +1099,7 @@ anims/Open = SubResource( 53 )
 [node name="RedPotionFull" parent="YSort/Chests/Chest6" groups=[
 "HealthPotion",
 ] instance=ExtResource( 17 )]
-frame = 0
+frame = 7
 max_jump_height = 40
 max_jumps = 2
 jump_time = 1.0
@@ -1133,7 +1133,7 @@ margin_bottom = 15.0
 visible = false
 
 [node name="RedPotionFull" parent="CanvasLayer/Inventory" index="3"]
-frame = 0
+frame = 2
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 layer = 100

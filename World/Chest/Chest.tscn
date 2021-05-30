@@ -4,23 +4,23 @@
 [ext_resource path="res://Overlap/Interactable.tscn" type="PackedScene" id=2]
 [ext_resource path="res://World/Chest/Chest.gd" type="Script" id=3]
 
-[sub_resource type="AtlasTexture" id=1]
+[sub_resource type="AtlasTexture" id=23]
 atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 21, 18 )
 
-[sub_resource type="AtlasTexture" id=2]
+[sub_resource type="AtlasTexture" id=24]
 atlas = ExtResource( 1 )
 region = Rect2( 21, 0, 21, 18 )
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=25]
 animations = [ {
-"frames": [ SubResource( 1 ), SubResource( 2 ) ],
+"frames": [ SubResource( 23 ), SubResource( 24 ) ],
 "loop": true,
 "name": "Animate",
 "speed": 5.0
 } ]
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=26]
 resource_name = "Open"
 length = 0.1
 tracks/0/type = "value"
@@ -36,10 +36,10 @@ tracks/0/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=27]
 extents = Vector2( 9, 9 )
 
-[sub_resource type="CircleShape2D" id=9]
+[sub_resource type="CircleShape2D" id=28]
 radius = 21.0
 
 [node name="Chest" type="StaticBody2D"]
@@ -49,22 +49,22 @@ collision_mask = 2147483648
 script = ExtResource( 3 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 3 )
+frames = SubResource( 25 )
 animation = "Animate"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../AnimatedSprite")
-anims/Open = SubResource( 5 )
+anims/Open = SubResource( 26 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -1, 0 )
-shape = SubResource( 8 )
+shape = SubResource( 27 )
 
 [node name="Interactable2" parent="." instance=ExtResource( 2 )]
 collision_mask = 2147483648
 
 [node name="CollisionShape2D" parent="Interactable2" index="0"]
-shape = SubResource( 9 )
+shape = SubResource( 28 )
 
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

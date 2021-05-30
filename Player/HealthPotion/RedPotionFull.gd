@@ -57,3 +57,8 @@ func _on_Interactable_area_entered(area):
 	print("Health potion picked up")
 	get_tree().call_group("Inventory", "health_potion_picked_up")
 	queue_free()
+
+func _on_Chest_chest_opened():
+	self.drop(marker)
+	self.visible = true
+	collision.disabled = false

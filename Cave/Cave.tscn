@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Cave/CaveBackground.jpg" type="Texture" id=1]
 [ext_resource path="res://Cave/Tilesets/Cave.tres" type="TileSet" id=2]
@@ -17,33 +17,132 @@
 [ext_resource path="res://UI/Pause.gd" type="Script" id=15]
 [ext_resource path="res://UI/PixelFont.tres" type="DynamicFont" id=16]
 [ext_resource path="res://UI/VictoryScreen.gd" type="Script" id=17]
+[ext_resource path="res://World/Chest/Chest.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Player/HealthPotion/RedPotionFull.tscn" type="PackedScene" id=19]
+[ext_resource path="res://UI/Inventory/Inventory.tscn" type="PackedScene" id=21]
 
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
 shader = ExtResource( 13 )
 shader_param/active = false
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="Animation" id=22]
+resource_name = "Open"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=23]
+resource_name = "Open"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=24]
+resource_name = "Open"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=25]
+resource_name = "Open"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=26]
+resource_name = "Open"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=27]
+resource_name = "Open"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="RectangleShape2D" id=15]
 extents = Vector2( 10, 31 )
 
-[sub_resource type="DynamicFontData" id=3]
+[sub_resource type="DynamicFontData" id=16]
 font_path = "res://UI/Born2bSportyV2.ttf"
 
-[sub_resource type="DynamicFont" id=4]
-font_data = SubResource( 3 )
+[sub_resource type="DynamicFont" id=17]
+font_data = SubResource( 16 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=18]
 size = 32
-font_data = SubResource( 3 )
+font_data = SubResource( 16 )
 
-[sub_resource type="DynamicFontData" id=6]
+[sub_resource type="DynamicFontData" id=19]
 font_path = "res://UI/Born2bSportyV2.ttf"
 
-[sub_resource type="DynamicFont" id=7]
-font_data = SubResource( 6 )
+[sub_resource type="DynamicFont" id=20]
+font_data = SubResource( 19 )
 
-[sub_resource type="DynamicFont" id=8]
-font_data = SubResource( 3 )
+[sub_resource type="DynamicFont" id=21]
+font_data = SubResource( 16 )
 
 [sub_resource type="DynamicFontData" id=9]
 font_path = "res://UI/Born2bSportyV2.ttf"
@@ -77,7 +176,7 @@ tile_data = PoolIntArray( -458764, 0, 0, -458763, 0, 5, -458762, 0, 196609, -458
 [node name="Player" parent="YSort" groups=[
 "Player",
 ] instance=ExtResource( 4 )]
-position = Vector2( -255, -192 )
+position = Vector2( -275, 33 )
 collision_layer = 2147483650
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
@@ -94,7 +193,7 @@ shadow_enabled = true
 shadow_buffer_size = 16384
 
 [node name="Camera2D" type="Camera2D" parent="YSort"]
-position = Vector2( -255, -192 )
+position = Vector2( -275, 33 )
 current = true
 smoothing_enabled = true
 script = ExtResource( 3 )
@@ -238,9 +337,155 @@ position = Vector2( 542, 321 )
 
 [node name="AnimatedSprite" parent="YSort/Enemies/GolemBoss" index="0"]
 material = SubResource( 1 )
-frame = 3
+frame = 0
+
+[node name="Chests" type="YSort" parent="YSort"]
+
+[node name="Chest" parent="YSort/Chests" groups=[
+"Chests",
+] instance=ExtResource( 18 )]
+position = Vector2( -146, -118 )
+path = NodePath("../..")
+Item = ExtResource( 19 )
+ItemPosition = Vector2( -112, -90 )
+
+[node name="RedPotionFull" parent="YSort/Chests/Chest" groups=[
+"HealthPotion",
+] instance=ExtResource( 19 )]
+position = Vector2( -1, 0 )
+frame = 1
+max_jump_height = 40
+max_jumps = 2
+jump_time = 1.0
+marker = Vector2( -112, -90 )
+
+[node name="Chest2" parent="YSort/Chests" groups=[
+"Chests",
+] instance=ExtResource( 18 )]
+position = Vector2( 26, -199 )
+path = NodePath("../..")
+Item = ExtResource( 19 )
+ItemPosition = Vector2( 50, -173 )
+
+[node name="AnimationPlayer" parent="YSort/Chests/Chest2" index="1"]
+anims/Open = SubResource( 22 )
+
+[node name="RedPotionFull" parent="YSort/Chests/Chest2" groups=[
+"HealthPotion",
+] instance=ExtResource( 19 )]
+position = Vector2( -1, 0 )
+frame = 0
+max_jump_height = 40
+max_jumps = 2
+jump_time = 1.0
+marker = Vector2( 50, -173 )
+
+[node name="Chest3" parent="YSort/Chests" groups=[
+"Chests",
+] instance=ExtResource( 18 )]
+position = Vector2( -221, 10 )
+path = NodePath("../..")
+Item = ExtResource( 19 )
+ItemPosition = Vector2( 50, -173 )
+
+[node name="AnimationPlayer" parent="YSort/Chests/Chest3" index="1"]
+anims/Open = SubResource( 23 )
+
+[node name="RedPotionFull" parent="YSort/Chests/Chest3" groups=[
+"HealthPotion",
+] instance=ExtResource( 19 )]
+position = Vector2( -1, 0 )
+frame = 0
+max_jump_height = 40
+max_jumps = 2
+jump_time = 1.0
+marker = Vector2( -180, 33 )
+
+[node name="Chest4" parent="YSort/Chests" groups=[
+"Chests",
+] instance=ExtResource( 18 )]
+position = Vector2( -303, 266 )
+path = NodePath("../..")
+Item = ExtResource( 19 )
+ItemPosition = Vector2( 50, -173 )
+
+[node name="AnimationPlayer" parent="YSort/Chests/Chest4" index="1"]
+anims/Open = SubResource( 24 )
+
+[node name="RedPotionFull" parent="YSort/Chests/Chest4" groups=[
+"HealthPotion",
+] instance=ExtResource( 19 )]
+position = Vector2( -1, 0 )
+frame = 0
+max_jump_height = 40
+max_jumps = 2
+jump_time = 1.0
+marker = Vector2( -303, 301 )
+
+[node name="Chest5" parent="YSort/Chests" groups=[
+"Chests",
+] instance=ExtResource( 18 )]
+position = Vector2( 374, -7 )
+path = NodePath("../..")
+Item = ExtResource( 19 )
+ItemPosition = Vector2( 50, -173 )
+
+[node name="AnimationPlayer" parent="YSort/Chests/Chest5" index="1"]
+anims/Open = SubResource( 25 )
+
+[node name="RedPotionFull" parent="YSort/Chests/Chest5" groups=[
+"HealthPotion",
+] instance=ExtResource( 19 )]
+position = Vector2( -1, 0 )
+frame = 7
+max_jump_height = 40
+max_jumps = 2
+jump_time = 1.0
+marker = Vector2( 414, 13 )
+
+[node name="Chest6" parent="YSort/Chests" groups=[
+"Chests",
+] instance=ExtResource( 18 )]
+position = Vector2( 373, 235 )
+path = NodePath("../..")
+Item = ExtResource( 19 )
+ItemPosition = Vector2( 50, -173 )
+
+[node name="AnimationPlayer" parent="YSort/Chests/Chest6" index="1"]
+anims/Open = SubResource( 26 )
+
+[node name="RedPotionFull" parent="YSort/Chests/Chest6" groups=[
+"HealthPotion",
+] instance=ExtResource( 19 )]
+position = Vector2( -1, 0 )
+frame = 7
+max_jump_height = 40
+max_jumps = 2
+jump_time = 1.0
+marker = Vector2( 394, 270 )
+
+[node name="Chest7" parent="YSort/Chests" groups=[
+"Chests",
+] instance=ExtResource( 18 )]
+position = Vector2( 395, 235 )
+path = NodePath("../..")
+Item = ExtResource( 19 )
+ItemPosition = Vector2( 50, -173 )
+
+[node name="AnimationPlayer" parent="YSort/Chests/Chest7" index="1"]
+anims/Open = SubResource( 27 )
+
+[node name="RedPotionFull" parent="YSort/Chests/Chest7" groups=[
+"HealthPotion",
+] instance=ExtResource( 19 )]
+position = Vector2( -1, 0 )
+max_jump_height = 40
+max_jumps = 2
+jump_time = 1.0
+marker = Vector2( 417, 270 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color( 0, 0, 0, 1 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -255,11 +500,16 @@ margin_bottom = 15.0
 visible = false
 position = Vector2( 135, 138 )
 
+[node name="Inventory" parent="CanvasLayer" groups=[
+"Inventory",
+] instance=ExtResource( 21 )]
+visible = false
+
 [node name="BossFightTrigger" type="Area2D" parent="."]
 position = Vector2( 310, 320 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossFightTrigger"]
-shape = SubResource( 2 )
+shape = SubResource( 15 )
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
@@ -319,7 +569,7 @@ margin_bottom = 52.0
 margin_left = 124.0
 margin_right = 176.0
 margin_bottom = 16.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 17 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "YOU WON!"
 
@@ -331,7 +581,7 @@ margin_bottom = 88.0
 [node name="Label" type="Label" parent="CanvasLayer2/VictoryScreen/MarginContainer/CenterContainer/VBoxContainer/CenterContainer4"]
 margin_right = 300.0
 margin_bottom = 32.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 18 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Thank you for playing <3"
 
@@ -357,7 +607,7 @@ margin_bottom = 16.0
 margin_right = 7.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 7, 0 )
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 20 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = ">"
 __meta__ = {
@@ -369,7 +619,7 @@ margin_left = 11.0
 margin_right = 54.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 43, 0 )
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 21 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Quit"
 
@@ -458,8 +708,29 @@ custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Quit"
 
 [connection signal="boss_died" from="YSort/Enemies/GolemBoss" to="CanvasLayer2/VictoryScreen" method="_on_GolemBoss_boss_died"]
+[connection signal="chest_opened" from="YSort/Chests/Chest" to="YSort/Chests/Chest/RedPotionFull" method="_on_Chest_chest_opened"]
+[connection signal="chest_opened" from="YSort/Chests/Chest2" to="YSort/Chests/Chest2/RedPotionFull" method="_on_Chest_chest_opened"]
+[connection signal="chest_opened" from="YSort/Chests/Chest3" to="YSort/Chests/Chest3/RedPotionFull" method="_on_Chest_chest_opened"]
+[connection signal="chest_opened" from="YSort/Chests/Chest4" to="YSort/Chests/Chest4/RedPotionFull" method="_on_Chest_chest_opened"]
+[connection signal="chest_opened" from="YSort/Chests/Chest5" to="YSort/Chests/Chest5/RedPotionFull" method="_on_Chest_chest_opened"]
+[connection signal="chest_opened" from="YSort/Chests/Chest6" to="YSort/Chests/Chest6/RedPotionFull" method="_on_Chest_chest_opened"]
+[connection signal="chest_opened" from="YSort/Chests/Chest7" to="YSort/Chests/Chest7/RedPotionFull" method="_on_Chest_chest_opened"]
 [connection signal="body_entered" from="BossFightTrigger" to="YSort/Enemies/GolemBoss" method="_on_BossFightTrigger_body_entered"]
 [connection signal="body_entered" from="BossFightTrigger" to="." method="_on_BossFightTrigger_body_entered"]
 
 [editable path="YSort/Enemies/GolemBoss"]
 [editable path="YSort/Enemies/GolemBoss/Hurtboxes"]
+[editable path="YSort/Chests/Chest"]
+[editable path="YSort/Chests/Chest/Interactable2"]
+[editable path="YSort/Chests/Chest2"]
+[editable path="YSort/Chests/Chest2/Interactable2"]
+[editable path="YSort/Chests/Chest3"]
+[editable path="YSort/Chests/Chest3/Interactable2"]
+[editable path="YSort/Chests/Chest4"]
+[editable path="YSort/Chests/Chest4/Interactable2"]
+[editable path="YSort/Chests/Chest5"]
+[editable path="YSort/Chests/Chest5/Interactable2"]
+[editable path="YSort/Chests/Chest6"]
+[editable path="YSort/Chests/Chest6/Interactable2"]
+[editable path="YSort/Chests/Chest7"]
+[editable path="YSort/Chests/Chest7/Interactable2"]

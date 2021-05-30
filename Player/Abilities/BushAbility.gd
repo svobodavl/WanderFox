@@ -4,7 +4,7 @@ signal doesnt_have_bush_on
 signal has_bush_on
 
 func _process(delta):
-	if Input.is_action_just_pressed("attack"):
+	if Input.is_action_just_pressed("attack") or Input.is_action_just_pressed("roll"):
 		reset_player_speed()
 		queue_free()
 

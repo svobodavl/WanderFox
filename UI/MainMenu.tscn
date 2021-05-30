@@ -19,12 +19,12 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="."]
-margin_right = 2417.0
-margin_bottom = 1357.0
+margin_right = 320.0
+margin_bottom = 180.0
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_right = 2417.0
-margin_bottom = 1357.0
+margin_right = 320.0
+margin_bottom = 180.0
 color = Color( 0.133333, 0.388235, 0.74902, 1 )
 
 [node name="WanderFoxMainMenuImage" type="Sprite" parent="."]
@@ -33,14 +33,14 @@ scale = Vector2( 0.231876, 0.231876 )
 texture = ExtResource( 3 )
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
-margin_right = 2417.0
-margin_bottom = 1357.0
+margin_right = 320.0
+margin_bottom = 180.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-margin_left = 1143.0
-margin_top = 634.0
-margin_right = 1273.0
-margin_bottom = 722.0
+margin_left = 95.0
+margin_top = 46.0
+margin_right = 225.0
+margin_bottom = 134.0
 custom_constants/separation = 20
 
 [node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer"]

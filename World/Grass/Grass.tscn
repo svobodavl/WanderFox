@@ -4,7 +4,6 @@
 [ext_resource path="res://Overlap/Hurtboxes.tscn" type="PackedScene" id=3]
 [ext_resource path="res://World/Grass/Grass.gd" type="Script" id=4]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7, 7 )
 
@@ -22,6 +21,7 @@ collision_layer = 8
 [node name="CollisionShape2D" parent="Hurtboxes" index="0"]
 position = Vector2( 8, 8 )
 shape = SubResource( 1 )
+
 [connection signal="area_entered" from="Hurtboxes" to="." method="_on_Hurtboxes_area_entered"]
 
 [editable path="Hurtboxes"]

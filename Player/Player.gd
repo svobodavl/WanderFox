@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 const PlayerHurtSound = preload("res://Music and Sounds/PlayerHurtSound.tscn")
+const Poop = preload("res://Player/Poop/Poop.tscn")
 
 export var MAX_SPEED = 80
 export var ACCELERATION = 500
@@ -12,6 +13,12 @@ enum {
 	ROLL,
 	ATTACK
 }
+
+var sequence = [
+	KEY_UP,
+	KEY_UP
+]
+var sequence_index = 0
 
 signal BatCantSeePlayer
 signal BatCanSeePlayer
@@ -28,7 +35,7 @@ onready var animationState = animationTree.get("parameters/playback")
 onready var swordHitbox = $HitboxPivot/SwordHitbox
 onready var hurtbox = $Hurtboxes
 onready var blinkAnimationPlayer = $BlinkAnimationPlayer
-
+onready var cheatCodeTimer = $CheatCodeTimer
 
 func _ready():
 	randomize()
@@ -46,6 +53,9 @@ func _physics_process(delta):
 			
 		ATTACK:
 			attack_state(delta)
+			
+	if Input.is_key_pressed(KEY_UP):
+		cheatCodeTimer.start()
 
 func move_state(delta):
 	var input_vector = Vector2.ZERO
@@ -96,13 +106,7 @@ func attack_animation_finished():
 	state = MOVE
 
 func _on_Hurtboxes_area_entered(area):
-	stats.health -= area.damage
-	hurtbox.start_invincibility(0.6)
-	hurtbox.create_hit_effect()
-	var playerHurtSound = PlayerHurtSound.instance()
-	get_tree().current_scene.add_child(playerHurtSound)
-	if stats.health <= 0:
-		emit_signal("player_died")
+	pass
 
 func _on_Hurtboxes_invincibility_started():
 	blinkAnimationPlayer.play("Start")
@@ -125,3 +129,8 @@ func doesnt_have_bush_ability_on():
 
 func _on_Button_pressed():
 	stats.health = stats.health + 1
+
+func _on_CheatCode_done():
+	var poop = Poop.instance()
+	get_parent().add_child(poop)
+	poop.global_position = global_position

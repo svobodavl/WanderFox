@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=2]
+[gd_scene load_steps=63 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/Player.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Music and Sounds/Evade.wav" type="AudioStream" id=8]
 [ext_resource path="res://WhiteColorShader.shader" type="Shader" id=9]
 [ext_resource path="res://Overlap/Interactable.tscn" type="PackedScene" id=10]
+[ext_resource path="res://addons/gcode/GCode.gd" type="Script" id=11]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 9 )
@@ -849,9 +850,17 @@ collision_mask = 2147483712
 [node name="CollisionShape2D" parent="Interactable" index="0"]
 shape = SubResource( 51 )
 
+[node name="CheatCodeTimer" type="Timer" parent="."]
+
+[node name="CheatCode" type="Node" parent="."]
+script = ExtResource( 11 )
+actions = PoolStringArray( "ui_up", "ui_up", "ui_down", "ui_down", "ui_left", "ui_right", "ui_left", "ui_right", "ui_b", "ui_a" )
+threshold = 1
+
 [connection signal="area_entered" from="Hurtboxes" to="." method="_on_Hurtboxes_area_entered"]
 [connection signal="invincibility_ended" from="Hurtboxes" to="." method="_on_Hurtboxes_invincibility_ended"]
 [connection signal="invincibility_started" from="Hurtboxes" to="." method="_on_Hurtboxes_invincibility_started"]
+[connection signal="done" from="CheatCode" to="." method="_on_CheatCode_done"]
 
 [editable path="HitboxPivot/SwordHitbox"]
 [editable path="Hurtboxes"]

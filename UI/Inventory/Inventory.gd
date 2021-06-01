@@ -23,6 +23,5 @@ func health_potion_picked_up():
 	print("+1 health")
 	emit_signal("add_health_counter")
 
-
-func _on_Control_BushAbilityUnlocked():
+func _on_Chest3_chest_opened():
 	bushSprite.visible = true

@@ -107,7 +107,13 @@ func attack_animation_finished():
 	state = MOVE
 
 func _on_Hurtboxes_area_entered(area):
-	pass
+	stats.health -= area.damage
+	hurtbox.start_invincibility(0.6)
+	hurtbox.create_hit_effect()
+	var playerHurtSound = PlayerHurtSound.instance()
+	get_tree().current_scene.add_child(playerHurtSound)
+	if stats.health <= 0:
+		emit_signal("player_died")
 
 func _on_Hurtboxes_invincibility_started():
 	blinkAnimationPlayer.play("Start")
@@ -138,3 +144,4 @@ func _on_CheatCode_done():
 
 func _on_BossFightTrigger_body_entered(body):
 	light.scale.x += 5
+	light.scale.y += 5

@@ -339,7 +339,7 @@ position = Vector2( 542, 321 )
 
 [node name="AnimatedSprite" parent="YSort/Enemies/GolemBoss" index="0"]
 material = SubResource( 1 )
-frame = 2
+frame = 0
 
 [node name="Chests" type="YSort" parent="YSort"]
 
@@ -355,7 +355,6 @@ ItemPosition = Vector2( -112, -90 )
 "HealthPotion",
 ] instance=ExtResource( 19 )]
 position = Vector2( -1, 0 )
-frame = 0
 max_jump_height = 40
 max_jumps = 2
 jump_time = 1.0
@@ -376,7 +375,7 @@ anims/Open = SubResource( 2 )
 "HealthPotion",
 ] instance=ExtResource( 19 )]
 position = Vector2( -1, 0 )
-frame = 7
+frame = 5
 max_jump_height = 40
 max_jumps = 2
 jump_time = 1.0
@@ -397,7 +396,7 @@ anims/Open = SubResource( 3 )
 "HealthPotion",
 ] instance=ExtResource( 19 )]
 position = Vector2( -1, 0 )
-frame = 7
+frame = 5
 max_jump_height = 40
 max_jumps = 2
 jump_time = 1.0
@@ -418,6 +417,7 @@ anims/Open = SubResource( 4 )
 "HealthPotion",
 ] instance=ExtResource( 19 )]
 position = Vector2( -1, 0 )
+frame = 4
 max_jump_height = 40
 max_jumps = 2
 jump_time = 1.0
@@ -438,6 +438,7 @@ anims/Open = SubResource( 5 )
 "HealthPotion",
 ] instance=ExtResource( 19 )]
 position = Vector2( -1, 0 )
+frame = 4
 max_jump_height = 40
 max_jumps = 2
 jump_time = 1.0
@@ -458,7 +459,7 @@ anims/Open = SubResource( 6 )
 "HealthPotion",
 ] instance=ExtResource( 19 )]
 position = Vector2( -1, 0 )
-frame = 5
+frame = 3
 max_jump_height = 40
 max_jumps = 2
 jump_time = 1.0
@@ -479,7 +480,7 @@ anims/Open = SubResource( 7 )
 "HealthPotion",
 ] instance=ExtResource( 19 )]
 position = Vector2( -1, 0 )
-frame = 5
+frame = 3
 max_jump_height = 40
 max_jumps = 2
 jump_time = 1.0
@@ -501,9 +502,7 @@ margin_bottom = 15.0
 visible = false
 position = Vector2( 135, 138 )
 
-[node name="Inventory" parent="CanvasLayer" groups=[
-"Inventory",
-] instance=ExtResource( 21 )]
+[node name="Inventory" parent="CanvasLayer" instance=ExtResource( 21 )]
 visible = false
 
 [node name="BossFightTrigger" type="Area2D" parent="."]

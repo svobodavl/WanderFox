@@ -590,7 +590,7 @@ tile_data = PoolIntArray( -524300, 0, 0, -524299, 0, 1, -524298, 0, 1, -524297, 
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Camera2D" parent="YSort" instance=ExtResource( 10 )]
-position = Vector2( 124, 44 )
+position = Vector2( 136, 48 )
 
 [node name="TopLeft" parent="YSort/Camera2D/Limits" index="0"]
 position = Vector2( -353, -239 )
@@ -601,7 +601,7 @@ position = Vector2( 672, 416 )
 [node name="Player" parent="YSort" groups=[
 "Player",
 ] instance=ExtResource( 2 )]
-position = Vector2( 124, 44 )
+position = Vector2( 136, 48 )
 collision_layer = 2147483650
 
 [node name="AnimationTree" parent="YSort/Player" index="4"]
@@ -988,7 +988,7 @@ position = Vector2( -287, 191 )
 
 [node name="Sprite" parent="YSort/Bats/Bat" index="0"]
 material = SubResource( 51 )
-frame = 0
+frame = 2
 
 [node name="Bat8" parent="YSort/Bats" groups=[
 "Bats",
@@ -1310,6 +1310,7 @@ volume_db = -12.0
 [connection signal="player_died" from="YSort/Player" to="CanvasLayer2/DeathScreen" method="_on_Player_player_died"]
 [connection signal="HasBushOn" from="YSort/Bushes/Bush32" to="YSort/Player" method="_on_Bush4_HasBushOn"]
 [connection signal="HasBushOn" from="YSort/Bushes/Bush33" to="YSort/Player" method="_on_Bush4_HasBushOn"]
+[connection signal="chest_opened" from="YSort/Chests/Chest3" to="CanvasLayer/Inventory" method="_on_Chest3_chest_opened"]
 [connection signal="chest_opened" from="YSort/Chests/Chest4" to="CanvasLayer/Inventory" method="_on_Chest3_chest_opened"]
 [connection signal="chest_opened" from="YSort/Chests/Chest4" to="YSort/Chests/Chest4/RedPotionFull" method="_on_Chest4_chest_opened"]
 [connection signal="potion_picked_up" from="YSort/Chests/Chest4/RedPotionFull" to="CanvasLayer/Inventory" method="_on_RedPotionFull_potion_picked_up"]

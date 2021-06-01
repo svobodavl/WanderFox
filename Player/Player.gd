@@ -36,6 +36,7 @@ onready var swordHitbox = $HitboxPivot/SwordHitbox
 onready var hurtbox = $Hurtboxes
 onready var blinkAnimationPlayer = $BlinkAnimationPlayer
 onready var cheatCodeTimer = $CheatCodeTimer
+onready var light = $Light2D
 
 func _ready():
 	randomize()
@@ -134,3 +135,6 @@ func _on_CheatCode_done():
 	var poop = Poop.instance()
 	get_parent().add_child(poop)
 	poop.global_position = global_position
+
+func _on_BossFightTrigger_body_entered(body):
+	light.scale = 5

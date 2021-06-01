@@ -26,7 +26,7 @@ resource_local_to_scene = true
 shader = ExtResource( 13 )
 shader_param/active = false
 
-[sub_resource type="Animation" id=22]
+[sub_resource type="Animation" id=2]
 resource_name = "Open"
 length = 0.1
 tracks/0/type = "value"
@@ -42,7 +42,7 @@ tracks/0/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=23]
+[sub_resource type="Animation" id=3]
 resource_name = "Open"
 length = 0.1
 tracks/0/type = "value"
@@ -58,7 +58,7 @@ tracks/0/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=24]
+[sub_resource type="Animation" id=4]
 resource_name = "Open"
 length = 0.1
 tracks/0/type = "value"
@@ -74,7 +74,7 @@ tracks/0/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=25]
+[sub_resource type="Animation" id=5]
 resource_name = "Open"
 length = 0.1
 tracks/0/type = "value"
@@ -90,7 +90,7 @@ tracks/0/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=26]
+[sub_resource type="Animation" id=6]
 resource_name = "Open"
 length = 0.1
 tracks/0/type = "value"
@@ -106,7 +106,7 @@ tracks/0/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=27]
+[sub_resource type="Animation" id=7]
 resource_name = "Open"
 length = 0.1
 tracks/0/type = "value"
@@ -122,27 +122,8 @@ tracks/0/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="RectangleShape2D" id=15]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 10, 31 )
-
-[sub_resource type="DynamicFontData" id=16]
-font_path = "res://UI/Born2bSportyV2.ttf"
-
-[sub_resource type="DynamicFont" id=17]
-font_data = SubResource( 16 )
-
-[sub_resource type="DynamicFont" id=18]
-size = 32
-font_data = SubResource( 16 )
-
-[sub_resource type="DynamicFontData" id=19]
-font_path = "res://UI/Born2bSportyV2.ttf"
-
-[sub_resource type="DynamicFont" id=20]
-font_data = SubResource( 19 )
-
-[sub_resource type="DynamicFont" id=21]
-font_data = SubResource( 16 )
 
 [sub_resource type="DynamicFontData" id=9]
 font_path = "res://UI/Born2bSportyV2.ttf"
@@ -150,11 +131,30 @@ font_path = "res://UI/Born2bSportyV2.ttf"
 [sub_resource type="DynamicFont" id=10]
 font_data = SubResource( 9 )
 
-[sub_resource type="DynamicFontData" id=11]
+[sub_resource type="DynamicFont" id=11]
+size = 32
+font_data = SubResource( 9 )
+
+[sub_resource type="DynamicFontData" id=12]
 font_path = "res://UI/Born2bSportyV2.ttf"
 
-[sub_resource type="DynamicFont" id=12]
-font_data = SubResource( 11 )
+[sub_resource type="DynamicFont" id=13]
+font_data = SubResource( 12 )
+
+[sub_resource type="DynamicFont" id=14]
+font_data = SubResource( 9 )
+
+[sub_resource type="DynamicFontData" id=15]
+font_path = "res://UI/Born2bSportyV2.ttf"
+
+[sub_resource type="DynamicFont" id=16]
+font_data = SubResource( 15 )
+
+[sub_resource type="DynamicFontData" id=17]
+font_path = "res://UI/Born2bSportyV2.ttf"
+
+[sub_resource type="DynamicFont" id=18]
+font_data = SubResource( 17 )
 
 [node name="Cave" type="Node2D"]
 script = ExtResource( 14 )
@@ -176,7 +176,7 @@ tile_data = PoolIntArray( -458764, 0, 0, -458763, 0, 5, -458762, 0, 196609, -458
 [node name="Player" parent="YSort" groups=[
 "Player",
 ] instance=ExtResource( 4 )]
-position = Vector2( -275, 33 )
+position = Vector2( 258, 297 )
 collision_layer = 2147483650
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
@@ -193,7 +193,7 @@ shadow_enabled = true
 shadow_buffer_size = 16384
 
 [node name="Camera2D" type="Camera2D" parent="YSort"]
-position = Vector2( -275, 33 )
+position = Vector2( 258, 297 )
 current = true
 smoothing_enabled = true
 script = ExtResource( 3 )
@@ -353,7 +353,7 @@ ItemPosition = Vector2( -112, -90 )
 "HealthPotion",
 ] instance=ExtResource( 19 )]
 position = Vector2( -1, 0 )
-frame = 1
+frame = 5
 max_jump_height = 40
 max_jumps = 2
 jump_time = 1.0
@@ -368,13 +368,13 @@ Item = ExtResource( 19 )
 ItemPosition = Vector2( 50, -173 )
 
 [node name="AnimationPlayer" parent="YSort/Chests/Chest2" index="1"]
-anims/Open = SubResource( 22 )
+anims/Open = SubResource( 2 )
 
 [node name="RedPotionFull" parent="YSort/Chests/Chest2" groups=[
 "HealthPotion",
 ] instance=ExtResource( 19 )]
 position = Vector2( -1, 0 )
-frame = 0
+frame = 4
 max_jump_height = 40
 max_jumps = 2
 jump_time = 1.0
@@ -389,13 +389,13 @@ Item = ExtResource( 19 )
 ItemPosition = Vector2( 50, -173 )
 
 [node name="AnimationPlayer" parent="YSort/Chests/Chest3" index="1"]
-anims/Open = SubResource( 23 )
+anims/Open = SubResource( 3 )
 
 [node name="RedPotionFull" parent="YSort/Chests/Chest3" groups=[
 "HealthPotion",
 ] instance=ExtResource( 19 )]
 position = Vector2( -1, 0 )
-frame = 0
+frame = 4
 max_jump_height = 40
 max_jumps = 2
 jump_time = 1.0
@@ -410,13 +410,13 @@ Item = ExtResource( 19 )
 ItemPosition = Vector2( 50, -173 )
 
 [node name="AnimationPlayer" parent="YSort/Chests/Chest4" index="1"]
-anims/Open = SubResource( 24 )
+anims/Open = SubResource( 4 )
 
 [node name="RedPotionFull" parent="YSort/Chests/Chest4" groups=[
 "HealthPotion",
 ] instance=ExtResource( 19 )]
 position = Vector2( -1, 0 )
-frame = 0
+frame = 3
 max_jump_height = 40
 max_jumps = 2
 jump_time = 1.0
@@ -431,13 +431,13 @@ Item = ExtResource( 19 )
 ItemPosition = Vector2( 50, -173 )
 
 [node name="AnimationPlayer" parent="YSort/Chests/Chest5" index="1"]
-anims/Open = SubResource( 25 )
+anims/Open = SubResource( 5 )
 
 [node name="RedPotionFull" parent="YSort/Chests/Chest5" groups=[
 "HealthPotion",
 ] instance=ExtResource( 19 )]
 position = Vector2( -1, 0 )
-frame = 7
+frame = 3
 max_jump_height = 40
 max_jumps = 2
 jump_time = 1.0
@@ -452,13 +452,13 @@ Item = ExtResource( 19 )
 ItemPosition = Vector2( 50, -173 )
 
 [node name="AnimationPlayer" parent="YSort/Chests/Chest6" index="1"]
-anims/Open = SubResource( 26 )
+anims/Open = SubResource( 6 )
 
 [node name="RedPotionFull" parent="YSort/Chests/Chest6" groups=[
 "HealthPotion",
 ] instance=ExtResource( 19 )]
 position = Vector2( -1, 0 )
-frame = 7
+frame = 2
 max_jump_height = 40
 max_jumps = 2
 jump_time = 1.0
@@ -473,12 +473,13 @@ Item = ExtResource( 19 )
 ItemPosition = Vector2( 50, -173 )
 
 [node name="AnimationPlayer" parent="YSort/Chests/Chest7" index="1"]
-anims/Open = SubResource( 27 )
+anims/Open = SubResource( 7 )
 
 [node name="RedPotionFull" parent="YSort/Chests/Chest7" groups=[
 "HealthPotion",
 ] instance=ExtResource( 19 )]
 position = Vector2( -1, 0 )
+frame = 2
 max_jump_height = 40
 max_jumps = 2
 jump_time = 1.0
@@ -509,7 +510,7 @@ visible = false
 position = Vector2( 310, 320 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossFightTrigger"]
-shape = SubResource( 15 )
+shape = SubResource( 8 )
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
@@ -569,7 +570,7 @@ margin_bottom = 52.0
 margin_left = 124.0
 margin_right = 176.0
 margin_bottom = 16.0
-custom_fonts/font = SubResource( 17 )
+custom_fonts/font = SubResource( 10 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "YOU WON!"
 
@@ -581,7 +582,7 @@ margin_bottom = 88.0
 [node name="Label" type="Label" parent="CanvasLayer2/VictoryScreen/MarginContainer/CenterContainer/VBoxContainer/CenterContainer4"]
 margin_right = 300.0
 margin_bottom = 32.0
-custom_fonts/font = SubResource( 18 )
+custom_fonts/font = SubResource( 11 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Thank you for playing <3"
 
@@ -607,7 +608,7 @@ margin_bottom = 16.0
 margin_right = 7.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 7, 0 )
-custom_fonts/font = SubResource( 20 )
+custom_fonts/font = SubResource( 13 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = ">"
 __meta__ = {
@@ -619,7 +620,7 @@ margin_left = 11.0
 margin_right = 54.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 43, 0 )
-custom_fonts/font = SubResource( 21 )
+custom_fonts/font = SubResource( 14 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Quit"
 
@@ -691,7 +692,7 @@ margin_bottom = 16.0
 margin_right = 7.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 7, 0 )
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 16 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = ">"
 __meta__ = {
@@ -703,7 +704,7 @@ margin_left = 11.0
 margin_right = 54.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 43, 0 )
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 18 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Quit"
 
@@ -715,8 +716,9 @@ text = "Quit"
 [connection signal="chest_opened" from="YSort/Chests/Chest5" to="YSort/Chests/Chest5/RedPotionFull" method="_on_Chest_chest_opened"]
 [connection signal="chest_opened" from="YSort/Chests/Chest6" to="YSort/Chests/Chest6/RedPotionFull" method="_on_Chest_chest_opened"]
 [connection signal="chest_opened" from="YSort/Chests/Chest7" to="YSort/Chests/Chest7/RedPotionFull" method="_on_Chest_chest_opened"]
-[connection signal="body_entered" from="BossFightTrigger" to="YSort/Enemies/GolemBoss" method="_on_BossFightTrigger_body_entered"]
 [connection signal="body_entered" from="BossFightTrigger" to="." method="_on_BossFightTrigger_body_entered"]
+[connection signal="body_entered" from="BossFightTrigger" to="YSort/Enemies/GolemBoss" method="_on_BossFightTrigger_body_entered"]
+[connection signal="body_entered" from="BossFightTrigger" to="YSort/Player" method="_on_BossFightTrigger_body_entered"]
 
 [editable path="YSort/Enemies/GolemBoss"]
 [editable path="YSort/Enemies/GolemBoss/Hurtboxes"]

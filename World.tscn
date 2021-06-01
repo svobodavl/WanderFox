@@ -985,6 +985,7 @@ position = Vector2( -287, 191 )
 
 [node name="Sprite" parent="YSort/Bats/Bat" index="0"]
 material = SubResource( 51 )
+frame = 4
 
 [node name="Bat8" parent="YSort/Bats" groups=[
 "Bats",
@@ -1079,7 +1080,6 @@ position = Vector2( -1, 0 )
 "HealthPotion",
 ] instance=ExtResource( 17 )]
 position = Vector2( -1, 0 )
-frame = 7
 max_jump_height = 40
 max_jumps = 2
 jump_time = 1.0
@@ -1099,7 +1099,6 @@ anims/Open = SubResource( 53 )
 [node name="RedPotionFull" parent="YSort/Chests/Chest6" groups=[
 "HealthPotion",
 ] instance=ExtResource( 17 )]
-frame = 7
 max_jump_height = 40
 max_jumps = 2
 jump_time = 1.0
@@ -1133,7 +1132,7 @@ margin_bottom = 15.0
 visible = false
 
 [node name="RedPotionFull" parent="CanvasLayer/Inventory" index="3"]
-frame = 2
+frame = 1
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 layer = 100
@@ -1302,11 +1301,11 @@ text = "RESTART"
 [connection signal="player_died" from="YSort/Player" to="CanvasLayer2/DeathScreen" method="_on_Player_player_died"]
 [connection signal="HasBushOn" from="YSort/Bushes/Bush32" to="YSort/Player" method="_on_Bush4_HasBushOn"]
 [connection signal="HasBushOn" from="YSort/Bushes/Bush33" to="YSort/Player" method="_on_Bush4_HasBushOn"]
-[connection signal="chest_opened" from="YSort/Chests/Chest4" to="YSort/Chests/Chest4/RedPotionFull" method="_on_Chest4_chest_opened"]
 [connection signal="chest_opened" from="YSort/Chests/Chest4" to="CanvasLayer/Inventory" method="_on_Chest3_chest_opened"]
+[connection signal="chest_opened" from="YSort/Chests/Chest4" to="YSort/Chests/Chest4/RedPotionFull" method="_on_Chest4_chest_opened"]
 [connection signal="potion_picked_up" from="YSort/Chests/Chest4/RedPotionFull" to="CanvasLayer/Inventory" method="_on_RedPotionFull_potion_picked_up"]
-[connection signal="chest_opened" from="YSort/Chests/Chest6" to="YSort/Chests/Chest6/RedPotionFull" method="_on_Chest4_chest_opened"]
 [connection signal="chest_opened" from="YSort/Chests/Chest6" to="CanvasLayer/Inventory" method="_on_Chest3_chest_opened"]
+[connection signal="chest_opened" from="YSort/Chests/Chest6" to="YSort/Chests/Chest6/RedPotionFull" method="_on_Chest4_chest_opened"]
 [connection signal="potion_picked_up" from="YSort/Chests/Chest6/RedPotionFull" to="CanvasLayer/Inventory" method="_on_RedPotionFull_potion_picked_up"]
 [connection signal="area_entered" from="YSort/NextLevelGateway" to="YSort/NextLevelGateway" method="_on_NextLevelGateway_area_entered"]
 [connection signal="pressed" from="CanvasLayer/Inventory/RedPotionFull/Button" to="YSort/Player" method="_on_Button_pressed"]

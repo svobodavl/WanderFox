@@ -137,4 +137,4 @@ func _on_CheatCode_done():
 	poop.global_position = global_position
 
 func _on_BossFightTrigger_body_entered(body):
-	light.scale = 5
+	light.scale.x += 5

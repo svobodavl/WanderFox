@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://UI/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://UI/PixelFont.tres" type="DynamicFont" id=2]
 [ext_resource path="res://UI/WanderFoxMainMenuImage.png" type="Texture" id=3]
+[ext_resource path="res://Music and Sounds/Music/Main Menu.wav" type="AudioStream" id=4]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://UI/Born2bSportyV2.ttf"
@@ -114,3 +115,8 @@ rect_min_size = Vector2( 43, 0 )
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Exit"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -10.274
+autoplay = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=2]
+[gd_scene load_steps=85 format=2]
 
 [ext_resource path="res://World/Bush/Bush.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -20,6 +20,8 @@
 [ext_resource path="res://UI/Pause.gd" type="Script" id=18]
 [ext_resource path="res://UI/PixelFont.tres" type="DynamicFont" id=19]
 [ext_resource path="res://UI/DeathScreen.gd" type="Script" id=20]
+[ext_resource path="res://World.gd" type="Script" id=21]
+[ext_resource path="res://Music and Sounds/Music/World.wav" type="AudioStream" id=22]
 
 [sub_resource type="TileSet" id=1]
 resource_local_to_scene = true
@@ -564,6 +566,7 @@ font_path = "res://UI/Born2bSportyV2.ttf"
 font_data = SubResource( 61 )
 
 [node name="World" type="Node2D"]
+script = ExtResource( 21 )
 
 [node name="Background" type="Sprite" parent="."]
 position = Vector2( 163, 89 )
@@ -985,7 +988,7 @@ position = Vector2( -287, 191 )
 
 [node name="Sprite" parent="YSort/Bats/Bat" index="0"]
 material = SubResource( 51 )
-frame = 4
+frame = 0
 
 [node name="Bat8" parent="YSort/Bats" groups=[
 "Bats",
@@ -1080,6 +1083,7 @@ position = Vector2( -1, 0 )
 "HealthPotion",
 ] instance=ExtResource( 17 )]
 position = Vector2( -1, 0 )
+frame = 0
 max_jump_height = 40
 max_jumps = 2
 jump_time = 1.0
@@ -1099,6 +1103,7 @@ anims/Open = SubResource( 53 )
 [node name="RedPotionFull" parent="YSort/Chests/Chest6" groups=[
 "HealthPotion",
 ] instance=ExtResource( 17 )]
+frame = 0
 max_jump_height = 40
 max_jumps = 2
 jump_time = 1.0
@@ -1132,7 +1137,7 @@ margin_bottom = 15.0
 visible = false
 
 [node name="RedPotionFull" parent="CanvasLayer/Inventory" index="3"]
-frame = 1
+frame = 3
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 layer = 100
@@ -1295,6 +1300,10 @@ custom_fonts/font = SubResource( 62 )
 custom_colors/font_color = Color( 0.760784, 0.760784, 0.760784, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "RESTART"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 22 )
+volume_db = -12.0
 
 [connection signal="BatCanSeePlayer" from="YSort/Player" to="YSort/Bats/Bat" method="_on_Player_BatCanSeePlayer"]
 [connection signal="BatCantSeePlayer" from="YSort/Player" to="YSort/Bats/Bat" method="_on_Player_BatCantSeePlayer"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Cave/CaveBackground.jpg" type="Texture" id=1]
 [ext_resource path="res://Cave/Tilesets/Cave.tres" type="TileSet" id=2]
@@ -19,7 +19,9 @@
 [ext_resource path="res://UI/VictoryScreen.gd" type="Script" id=17]
 [ext_resource path="res://World/Chest/Chest.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Player/HealthPotion/RedPotionFull.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Music and Sounds/Music/Cave 2.wav" type="AudioStream" id=20]
 [ext_resource path="res://UI/Inventory/Inventory.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Music and Sounds/Music/Boss.wav" type="AudioStream" id=22]
 
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
@@ -337,7 +339,7 @@ position = Vector2( 542, 321 )
 
 [node name="AnimatedSprite" parent="YSort/Enemies/GolemBoss" index="0"]
 material = SubResource( 1 )
-frame = 0
+frame = 2
 
 [node name="Chests" type="YSort" parent="YSort"]
 
@@ -353,7 +355,7 @@ ItemPosition = Vector2( -112, -90 )
 "HealthPotion",
 ] instance=ExtResource( 19 )]
 position = Vector2( -1, 0 )
-frame = 5
+frame = 0
 max_jump_height = 40
 max_jumps = 2
 jump_time = 1.0
@@ -374,7 +376,7 @@ anims/Open = SubResource( 2 )
 "HealthPotion",
 ] instance=ExtResource( 19 )]
 position = Vector2( -1, 0 )
-frame = 4
+frame = 7
 max_jump_height = 40
 max_jumps = 2
 jump_time = 1.0
@@ -395,7 +397,7 @@ anims/Open = SubResource( 3 )
 "HealthPotion",
 ] instance=ExtResource( 19 )]
 position = Vector2( -1, 0 )
-frame = 4
+frame = 7
 max_jump_height = 40
 max_jumps = 2
 jump_time = 1.0
@@ -416,7 +418,6 @@ anims/Open = SubResource( 4 )
 "HealthPotion",
 ] instance=ExtResource( 19 )]
 position = Vector2( -1, 0 )
-frame = 3
 max_jump_height = 40
 max_jumps = 2
 jump_time = 1.0
@@ -437,7 +438,6 @@ anims/Open = SubResource( 5 )
 "HealthPotion",
 ] instance=ExtResource( 19 )]
 position = Vector2( -1, 0 )
-frame = 3
 max_jump_height = 40
 max_jumps = 2
 jump_time = 1.0
@@ -458,7 +458,7 @@ anims/Open = SubResource( 6 )
 "HealthPotion",
 ] instance=ExtResource( 19 )]
 position = Vector2( -1, 0 )
-frame = 2
+frame = 5
 max_jump_height = 40
 max_jumps = 2
 jump_time = 1.0
@@ -479,7 +479,7 @@ anims/Open = SubResource( 7 )
 "HealthPotion",
 ] instance=ExtResource( 19 )]
 position = Vector2( -1, 0 )
-frame = 2
+frame = 5
 max_jump_height = 40
 max_jumps = 2
 jump_time = 1.0
@@ -708,6 +708,14 @@ custom_fonts/font = SubResource( 18 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Quit"
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 20 )
+volume_db = -10.0
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 22 )
+volume_db = -5.5
+
 [connection signal="boss_died" from="YSort/Enemies/GolemBoss" to="CanvasLayer2/VictoryScreen" method="_on_GolemBoss_boss_died"]
 [connection signal="chest_opened" from="YSort/Chests/Chest" to="YSort/Chests/Chest/RedPotionFull" method="_on_Chest_chest_opened"]
 [connection signal="chest_opened" from="YSort/Chests/Chest2" to="YSort/Chests/Chest2/RedPotionFull" method="_on_Chest_chest_opened"]
@@ -717,8 +725,8 @@ text = "Quit"
 [connection signal="chest_opened" from="YSort/Chests/Chest6" to="YSort/Chests/Chest6/RedPotionFull" method="_on_Chest_chest_opened"]
 [connection signal="chest_opened" from="YSort/Chests/Chest7" to="YSort/Chests/Chest7/RedPotionFull" method="_on_Chest_chest_opened"]
 [connection signal="body_entered" from="BossFightTrigger" to="." method="_on_BossFightTrigger_body_entered"]
-[connection signal="body_entered" from="BossFightTrigger" to="YSort/Enemies/GolemBoss" method="_on_BossFightTrigger_body_entered"]
 [connection signal="body_entered" from="BossFightTrigger" to="YSort/Player" method="_on_BossFightTrigger_body_entered"]
+[connection signal="body_entered" from="BossFightTrigger" to="YSort/Enemies/GolemBoss" method="_on_BossFightTrigger_body_entered"]
 
 [editable path="YSort/Enemies/GolemBoss"]
 [editable path="YSort/Enemies/GolemBoss/Hurtboxes"]

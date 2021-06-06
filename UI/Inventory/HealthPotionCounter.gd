@@ -28,5 +28,4 @@ func _on_Button_pressed():
 	append_bbcode(health_potion_counterText)
 	
 func signals_suck():
-	print("heeeeal")
 	emit_signal("heal")

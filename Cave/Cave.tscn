@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://Cave/CaveBackground.jpg" type="Texture" id=1]
 [ext_resource path="res://Cave/Tilesets/Cave.tres" type="TileSet" id=2]
@@ -124,6 +124,13 @@ tracks/0/keys = {
 "update": 1,
 "values": [ true ]
 }
+
+[sub_resource type="GDScript" id=20]
+script/source = "extends Area2D
+
+func _on_BossFightTrigger_body_entered(body):
+	queue_free()
+"
 
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 10, 31 )
@@ -343,7 +350,7 @@ position = Vector2( 542, 321 )
 
 [node name="AnimatedSprite" parent="YSort/Enemies/GolemBoss" index="0"]
 material = SubResource( 1 )
-frame = 0
+frame = 1
 
 [node name="Chests" type="YSort" parent="YSort"]
 
@@ -359,7 +366,7 @@ ItemPosition = Vector2( -112, -90 )
 "HealthPotion",
 ] instance=ExtResource( 19 )]
 position = Vector2( -1, 0 )
-frame = 7
+frame = 4
 max_jump_height = 40
 max_jumps = 2
 jump_time = 1.0
@@ -380,6 +387,7 @@ anims/Open = SubResource( 2 )
 "HealthPotion",
 ] instance=ExtResource( 19 )]
 position = Vector2( -1, 0 )
+frame = 3
 max_jump_height = 40
 max_jumps = 2
 jump_time = 1.0
@@ -400,6 +408,7 @@ anims/Open = SubResource( 3 )
 "HealthPotion",
 ] instance=ExtResource( 19 )]
 position = Vector2( -1, 0 )
+frame = 3
 max_jump_height = 40
 max_jumps = 2
 jump_time = 1.0
@@ -420,7 +429,7 @@ anims/Open = SubResource( 4 )
 "HealthPotion",
 ] instance=ExtResource( 19 )]
 position = Vector2( -1, 0 )
-frame = 5
+frame = 2
 max_jump_height = 40
 max_jumps = 2
 jump_time = 1.0
@@ -441,7 +450,7 @@ anims/Open = SubResource( 5 )
 "HealthPotion",
 ] instance=ExtResource( 19 )]
 position = Vector2( -1, 0 )
-frame = 5
+frame = 2
 max_jump_height = 40
 max_jumps = 2
 jump_time = 1.0
@@ -462,7 +471,7 @@ anims/Open = SubResource( 6 )
 "HealthPotion",
 ] instance=ExtResource( 19 )]
 position = Vector2( -1, 0 )
-frame = 4
+frame = 1
 max_jump_height = 40
 max_jumps = 2
 jump_time = 1.0
@@ -483,7 +492,7 @@ anims/Open = SubResource( 7 )
 "HealthPotion",
 ] instance=ExtResource( 19 )]
 position = Vector2( -1, 0 )
-frame = 4
+frame = 1
 max_jump_height = 40
 max_jumps = 2
 jump_time = 1.0
@@ -509,6 +518,7 @@ visible = false
 
 [node name="BossFightTrigger" type="Area2D" parent="."]
 position = Vector2( 310, 320 )
+script = SubResource( 20 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossFightTrigger"]
 shape = SubResource( 8 )
@@ -688,6 +698,9 @@ text = "RESTART"
 ] instance=ExtResource( 21 )]
 visible = false
 
+[node name="RedPotionFull" parent="CanvasLayer2/Inventory" index="3"]
+frame = 3
+
 [node name="VictoryScreen" type="Control" parent="CanvasLayer2"]
 pause_mode = 2
 visible = false
@@ -806,9 +819,10 @@ text = "Quit"
 [connection signal="chest_opened" from="YSort/Chests/Chest5" to="YSort/Chests/Chest5/RedPotionFull" method="_on_Chest_chest_opened"]
 [connection signal="chest_opened" from="YSort/Chests/Chest6" to="YSort/Chests/Chest6/RedPotionFull" method="_on_Chest_chest_opened"]
 [connection signal="chest_opened" from="YSort/Chests/Chest7" to="YSort/Chests/Chest7/RedPotionFull" method="_on_Chest_chest_opened"]
-[connection signal="body_entered" from="BossFightTrigger" to="." method="_on_BossFightTrigger_body_entered"]
-[connection signal="body_entered" from="BossFightTrigger" to="YSort/Player" method="_on_BossFightTrigger_body_entered"]
+[connection signal="body_entered" from="BossFightTrigger" to="BossFightTrigger" method="_on_BossFightTrigger_body_entered"]
 [connection signal="body_entered" from="BossFightTrigger" to="YSort/Enemies/GolemBoss" method="_on_BossFightTrigger_body_entered"]
+[connection signal="body_entered" from="BossFightTrigger" to="YSort/Player" method="_on_BossFightTrigger_body_entered"]
+[connection signal="body_entered" from="BossFightTrigger" to="." method="_on_BossFightTrigger_body_entered"]
 [connection signal="heal" from="CanvasLayer2/Inventory/RedPotionFull/HealthPotionCounter" to="YSort/Player" method="_on_HealthPotionCounter_heal"]
 
 [editable path="YSort/Enemies/GolemBoss"]

@@ -134,9 +134,6 @@ func doesnt_have_bush_ability_on():
 	get_tree().call_group("Bats", "bat_can_see_player")
 	emit_signal("BatCanSeePlayer")
 
-func _on_Button_pressed():
-	stats.health = stats.health + 1
-
 func _on_CheatCode_done():
 	var poop = Poop.instance()
 	get_parent().add_child(poop)
@@ -145,3 +142,7 @@ func _on_CheatCode_done():
 func _on_BossFightTrigger_body_entered(body):
 	light.scale.x += 5
 	light.scale.y += 5
+
+func _on_HealthPotionCounter_heal():
+	stats.health = stats.health + 1
+	print("heal")

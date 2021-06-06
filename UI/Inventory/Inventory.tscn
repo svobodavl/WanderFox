@@ -8,47 +8,47 @@
 [ext_resource path="res://UI/VPPixel-Simplified.otf" type="DynamicFontData" id=6]
 [ext_resource path="res://UI/Inventory/HealthPotionCounter.gd" type="Script" id=7]
 
-[sub_resource type="AtlasTexture" id=1]
+[sub_resource type="AtlasTexture" id=63]
 atlas = ExtResource( 5 )
 region = Rect2( 0, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=2]
+[sub_resource type="AtlasTexture" id=64]
 atlas = ExtResource( 5 )
 region = Rect2( 16, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id=65]
 atlas = ExtResource( 5 )
 region = Rect2( 32, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=4]
+[sub_resource type="AtlasTexture" id=66]
 atlas = ExtResource( 5 )
 region = Rect2( 0, 16, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=5]
+[sub_resource type="AtlasTexture" id=67]
 atlas = ExtResource( 5 )
 region = Rect2( 16, 16, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="AtlasTexture" id=68]
 atlas = ExtResource( 5 )
 region = Rect2( 32, 16, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=7]
+[sub_resource type="AtlasTexture" id=69]
 atlas = ExtResource( 5 )
 region = Rect2( 0, 32, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=8]
+[sub_resource type="AtlasTexture" id=70]
 atlas = ExtResource( 5 )
 region = Rect2( 16, 32, 16, 16 )
 
-[sub_resource type="SpriteFrames" id=9]
+[sub_resource type="SpriteFrames" id=71]
 animations = [ {
-"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
+"frames": [ SubResource( 63 ), SubResource( 64 ), SubResource( 65 ), SubResource( 66 ), SubResource( 67 ), SubResource( 68 ), SubResource( 69 ), SubResource( 70 ) ],
 "loop": true,
 "name": "default",
 "speed": 6.0
 } ]
 
-[sub_resource type="DynamicFont" id=10]
+[sub_resource type="DynamicFont" id=72]
 font_data = ExtResource( 6 )
 
 [node name="Inventory" type="Control"]
@@ -93,7 +93,7 @@ __meta__ = {
 
 [node name="RedPotionFull" type="AnimatedSprite" parent="."]
 position = Vector2( 5, 8 )
-frames = SubResource( 9 )
+frames = SubResource( 71 )
 frame = 6
 playing = true
 offset = Vector2( 165, 47 )
@@ -107,7 +107,7 @@ margin_left = 165.0
 margin_top = 36.0
 margin_right = 198.0
 margin_bottom = 63.0
-custom_fonts/normal_font = SubResource( 10 )
+custom_fonts/normal_font = SubResource( 72 )
 bbcode_enabled = true
 script = ExtResource( 7 )
 __meta__ = {

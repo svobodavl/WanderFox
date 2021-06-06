@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Cave/CaveBackground.jpg" type="Texture" id=1]
 [ext_resource path="res://Cave/Tilesets/Cave.tres" type="TileSet" id=2]
@@ -14,9 +14,7 @@
 [ext_resource path="res://Enemies/Bosses/Golem Boss/GolemBoss.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Shaders/WhiteColorShader.shader" type="Shader" id=13]
 [ext_resource path="res://Cave/Cave.gd" type="Script" id=14]
-[ext_resource path="res://UI/Pause.gd" type="Script" id=15]
-[ext_resource path="res://UI/PixelFont.tres" type="DynamicFont" id=16]
-[ext_resource path="res://UI/VictoryScreen.gd" type="Script" id=17]
+[ext_resource path="res://UI/CanvasLayer2.tscn" type="PackedScene" id=15]
 [ext_resource path="res://World/Chest/Chest.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Player/HealthPotion/RedPotionFull.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Music and Sounds/Music/Cave 2.wav" type="AudioStream" id=20]
@@ -126,37 +124,6 @@ tracks/0/keys = {
 
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 10, 31 )
-
-[sub_resource type="DynamicFontData" id=9]
-font_path = "res://UI/Born2bSportyV2.ttf"
-
-[sub_resource type="DynamicFont" id=10]
-font_data = SubResource( 9 )
-
-[sub_resource type="DynamicFont" id=11]
-size = 32
-font_data = SubResource( 9 )
-
-[sub_resource type="DynamicFontData" id=12]
-font_path = "res://UI/Born2bSportyV2.ttf"
-
-[sub_resource type="DynamicFont" id=13]
-font_data = SubResource( 12 )
-
-[sub_resource type="DynamicFont" id=14]
-font_data = SubResource( 9 )
-
-[sub_resource type="DynamicFontData" id=15]
-font_path = "res://UI/Born2bSportyV2.ttf"
-
-[sub_resource type="DynamicFont" id=16]
-font_data = SubResource( 15 )
-
-[sub_resource type="DynamicFontData" id=17]
-font_path = "res://UI/Born2bSportyV2.ttf"
-
-[sub_resource type="DynamicFont" id=18]
-font_data = SubResource( 17 )
 
 [node name="Cave" type="Node2D"]
 script = ExtResource( 14 )
@@ -339,7 +306,7 @@ position = Vector2( 542, 321 )
 
 [node name="AnimatedSprite" parent="YSort/Enemies/GolemBoss" index="0"]
 material = SubResource( 1 )
-frame = 0
+frame = 3
 
 [node name="Chests" type="YSort" parent="YSort"]
 
@@ -355,6 +322,7 @@ ItemPosition = Vector2( -112, -90 )
 "HealthPotion",
 ] instance=ExtResource( 19 )]
 position = Vector2( -1, 0 )
+frame = 5
 max_jump_height = 40
 max_jumps = 2
 jump_time = 1.0
@@ -375,7 +343,7 @@ anims/Open = SubResource( 2 )
 "HealthPotion",
 ] instance=ExtResource( 19 )]
 position = Vector2( -1, 0 )
-frame = 5
+frame = 4
 max_jump_height = 40
 max_jumps = 2
 jump_time = 1.0
@@ -396,7 +364,7 @@ anims/Open = SubResource( 3 )
 "HealthPotion",
 ] instance=ExtResource( 19 )]
 position = Vector2( -1, 0 )
-frame = 5
+frame = 4
 max_jump_height = 40
 max_jumps = 2
 jump_time = 1.0
@@ -417,7 +385,7 @@ anims/Open = SubResource( 4 )
 "HealthPotion",
 ] instance=ExtResource( 19 )]
 position = Vector2( -1, 0 )
-frame = 4
+frame = 3
 max_jump_height = 40
 max_jumps = 2
 jump_time = 1.0
@@ -438,7 +406,7 @@ anims/Open = SubResource( 5 )
 "HealthPotion",
 ] instance=ExtResource( 19 )]
 position = Vector2( -1, 0 )
-frame = 4
+frame = 3
 max_jump_height = 40
 max_jumps = 2
 jump_time = 1.0
@@ -459,7 +427,7 @@ anims/Open = SubResource( 6 )
 "HealthPotion",
 ] instance=ExtResource( 19 )]
 position = Vector2( -1, 0 )
-frame = 3
+frame = 2
 max_jump_height = 40
 max_jumps = 2
 jump_time = 1.0
@@ -480,14 +448,13 @@ anims/Open = SubResource( 7 )
 "HealthPotion",
 ] instance=ExtResource( 19 )]
 position = Vector2( -1, 0 )
-frame = 3
+frame = 2
 max_jump_height = 40
 max_jumps = 2
 jump_time = 1.0
 marker = Vector2( 417, 270 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color( 0, 0, 0, 1 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -511,202 +478,6 @@ position = Vector2( 310, 320 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossFightTrigger"]
 shape = SubResource( 8 )
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
-
-[node name="VictoryScreen" type="Control" parent="CanvasLayer2"]
-pause_mode = 2
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-script = ExtResource( 17 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="BlackOverlay" type="ColorRect" parent="CanvasLayer2/VictoryScreen"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0, 0, 0, 0.419608 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer2/VictoryScreen"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer2/VictoryScreen/MarginContainer"]
-margin_right = 320.0
-margin_bottom = 180.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer2/VictoryScreen/MarginContainer/CenterContainer"]
-margin_left = 10.0
-margin_top = 36.0
-margin_right = 310.0
-margin_bottom = 144.0
-
-[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer2/VictoryScreen/MarginContainer/CenterContainer/VBoxContainer"]
-margin_right = 300.0
-margin_bottom = 32.0
-
-[node name="Label" type="Label" parent="CanvasLayer2/VictoryScreen/MarginContainer/CenterContainer/VBoxContainer/CenterContainer"]
-margin_left = 49.0
-margin_right = 251.0
-margin_bottom = 32.0
-custom_fonts/font = ExtResource( 16 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "CONGRATULATIONS"
-
-[node name="CenterContainer3" type="CenterContainer" parent="CanvasLayer2/VictoryScreen/MarginContainer/CenterContainer/VBoxContainer"]
-margin_top = 36.0
-margin_right = 300.0
-margin_bottom = 52.0
-
-[node name="Label" type="Label" parent="CanvasLayer2/VictoryScreen/MarginContainer/CenterContainer/VBoxContainer/CenterContainer3"]
-margin_left = 124.0
-margin_right = 176.0
-margin_bottom = 16.0
-custom_fonts/font = SubResource( 10 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "YOU WON!"
-
-[node name="CenterContainer4" type="CenterContainer" parent="CanvasLayer2/VictoryScreen/MarginContainer/CenterContainer/VBoxContainer"]
-margin_top = 56.0
-margin_right = 300.0
-margin_bottom = 88.0
-
-[node name="Label" type="Label" parent="CanvasLayer2/VictoryScreen/MarginContainer/CenterContainer/VBoxContainer/CenterContainer4"]
-margin_right = 300.0
-margin_bottom = 32.0
-custom_fonts/font = SubResource( 11 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "Thank you for playing <3"
-
-[node name="CenterContainer2" type="CenterContainer" parent="CanvasLayer2/VictoryScreen/MarginContainer/CenterContainer/VBoxContainer"]
-margin_top = 92.0
-margin_right = 300.0
-margin_bottom = 108.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer2/VictoryScreen/MarginContainer/CenterContainer/VBoxContainer/CenterContainer2"]
-margin_left = 123.0
-margin_right = 177.0
-margin_bottom = 16.0
-
-[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer2/VictoryScreen/MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
-margin_right = 54.0
-margin_bottom = 16.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer2/VictoryScreen/MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer"]
-margin_right = 54.0
-margin_bottom = 16.0
-
-[node name="Selector" type="Label" parent="CanvasLayer2/VictoryScreen/MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer"]
-margin_right = 7.0
-margin_bottom = 16.0
-rect_min_size = Vector2( 7, 0 )
-custom_fonts/font = SubResource( 13 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = ">"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="OptionName" type="Label" parent="CanvasLayer2/VictoryScreen/MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer"]
-margin_left = 11.0
-margin_right = 54.0
-margin_bottom = 16.0
-rect_min_size = Vector2( 43, 0 )
-custom_fonts/font = SubResource( 14 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "Quit"
-
-[node name="Pause" type="Control" parent="CanvasLayer2"]
-pause_mode = 2
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-script = ExtResource( 15 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="BlackOverlay" type="ColorRect" parent="CanvasLayer2/Pause"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0, 0, 0, 0.419608 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer2/Pause"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer2/Pause/MarginContainer"]
-margin_right = 320.0
-margin_bottom = 180.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer2/Pause/MarginContainer/CenterContainer"]
-margin_left = 118.0
-margin_top = 64.0
-margin_right = 202.0
-margin_bottom = 116.0
-
-[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer2/Pause/MarginContainer/CenterContainer/VBoxContainer"]
-margin_right = 84.0
-margin_bottom = 32.0
-
-[node name="Label" type="Label" parent="CanvasLayer2/Pause/MarginContainer/CenterContainer/VBoxContainer/CenterContainer"]
-margin_right = 84.0
-margin_bottom = 32.0
-custom_fonts/font = ExtResource( 16 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "Paused"
-
-[node name="CenterContainer2" type="CenterContainer" parent="CanvasLayer2/Pause/MarginContainer/CenterContainer/VBoxContainer"]
-margin_top = 36.0
-margin_right = 84.0
-margin_bottom = 52.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer2/Pause/MarginContainer/CenterContainer/VBoxContainer/CenterContainer2"]
-margin_left = 15.0
-margin_right = 69.0
-margin_bottom = 16.0
-
-[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer2/Pause/MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
-margin_right = 54.0
-margin_bottom = 16.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer2/Pause/MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer"]
-margin_right = 54.0
-margin_bottom = 16.0
-
-[node name="Selector" type="Label" parent="CanvasLayer2/Pause/MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer"]
-margin_right = 7.0
-margin_bottom = 16.0
-rect_min_size = Vector2( 7, 0 )
-custom_fonts/font = SubResource( 16 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = ">"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="OptionName" type="Label" parent="CanvasLayer2/Pause/MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer"]
-margin_left = 11.0
-margin_right = 54.0
-margin_bottom = 16.0
-rect_min_size = Vector2( 43, 0 )
-custom_fonts/font = SubResource( 18 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "Quit"
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 20 )
 volume_db = -10.0
@@ -715,7 +486,14 @@ volume_db = -10.0
 stream = ExtResource( 22 )
 volume_db = -5.5
 
-[connection signal="boss_died" from="YSort/Enemies/GolemBoss" to="CanvasLayer2/VictoryScreen" method="_on_GolemBoss_boss_died"]
+[node name="CanvasLayer2" parent="." instance=ExtResource( 15 )]
+
+[node name="Inventory" parent="CanvasLayer2" index="2"]
+visible = true
+
+[node name="RedPotionFull" parent="CanvasLayer2/Inventory" index="3"]
+frame = 4
+
 [connection signal="chest_opened" from="YSort/Chests/Chest" to="YSort/Chests/Chest/RedPotionFull" method="_on_Chest_chest_opened"]
 [connection signal="chest_opened" from="YSort/Chests/Chest2" to="YSort/Chests/Chest2/RedPotionFull" method="_on_Chest_chest_opened"]
 [connection signal="chest_opened" from="YSort/Chests/Chest3" to="YSort/Chests/Chest3/RedPotionFull" method="_on_Chest_chest_opened"]
@@ -723,9 +501,10 @@ volume_db = -5.5
 [connection signal="chest_opened" from="YSort/Chests/Chest5" to="YSort/Chests/Chest5/RedPotionFull" method="_on_Chest_chest_opened"]
 [connection signal="chest_opened" from="YSort/Chests/Chest6" to="YSort/Chests/Chest6/RedPotionFull" method="_on_Chest_chest_opened"]
 [connection signal="chest_opened" from="YSort/Chests/Chest7" to="YSort/Chests/Chest7/RedPotionFull" method="_on_Chest_chest_opened"]
+[connection signal="body_entered" from="BossFightTrigger" to="YSort/Enemies/GolemBoss" method="_on_BossFightTrigger_body_entered"]
 [connection signal="body_entered" from="BossFightTrigger" to="." method="_on_BossFightTrigger_body_entered"]
 [connection signal="body_entered" from="BossFightTrigger" to="YSort/Player" method="_on_BossFightTrigger_body_entered"]
-[connection signal="body_entered" from="BossFightTrigger" to="YSort/Enemies/GolemBoss" method="_on_BossFightTrigger_body_entered"]
+[connection signal="heal" from="CanvasLayer2/Inventory/RedPotionFull/HealthPotionCounter" to="YSort/Player" method="_on_HealthPotionCounter_heal"]
 
 [editable path="YSort/Enemies/GolemBoss"]
 [editable path="YSort/Enemies/GolemBoss/Hurtboxes"]
@@ -743,3 +522,5 @@ volume_db = -5.5
 [editable path="YSort/Chests/Chest6/Interactable2"]
 [editable path="YSort/Chests/Chest7"]
 [editable path="YSort/Chests/Chest7/Interactable2"]
+[editable path="CanvasLayer2"]
+[editable path="CanvasLayer2/Inventory"]

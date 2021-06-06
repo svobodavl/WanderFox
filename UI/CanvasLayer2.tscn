@@ -1,0 +1,207 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://UI/Pause.gd" type="Script" id=1]
+[ext_resource path="res://UI/Inventory/Inventory.gd" type="Script" id=2]
+[ext_resource path="res://UI/DeathScreen.gd" type="Script" id=3]
+[ext_resource path="res://UI/PixelFont.tres" type="DynamicFont" id=4]
+[ext_resource path="res://UI/Inventory/Inventory.tscn" type="PackedScene" id=5]
+
+[sub_resource type="DynamicFontData" id=55]
+font_path = "res://UI/Born2bSportyV2.ttf"
+
+[sub_resource type="DynamicFont" id=56]
+font_data = SubResource( 55 )
+
+[sub_resource type="DynamicFontData" id=57]
+font_path = "res://UI/Born2bSportyV2.ttf"
+
+[sub_resource type="DynamicFont" id=58]
+font_data = SubResource( 57 )
+
+[sub_resource type="DynamicFontData" id=59]
+font_path = "res://UI/Born2bSportyV2.ttf"
+
+[sub_resource type="DynamicFont" id=60]
+font_data = SubResource( 59 )
+
+[sub_resource type="DynamicFontData" id=61]
+font_path = "res://UI/Born2bSportyV2.ttf"
+
+[sub_resource type="DynamicFont" id=62]
+font_data = SubResource( 61 )
+
+[node name="CanvasLayer2" type="CanvasLayer"]
+layer = 100
+
+[node name="Pause" type="Control" parent="."]
+pause_mode = 2
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BlackOverlay" type="ColorRect" parent="Pause"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.419608 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="Pause"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="Pause/MarginContainer"]
+margin_right = 320.0
+margin_bottom = 180.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pause/MarginContainer/CenterContainer"]
+margin_left = 118.0
+margin_top = 64.0
+margin_right = 202.0
+margin_bottom = 116.0
+
+[node name="CenterContainer" type="CenterContainer" parent="Pause/MarginContainer/CenterContainer/VBoxContainer"]
+margin_right = 84.0
+margin_bottom = 32.0
+
+[node name="Label" type="Label" parent="Pause/MarginContainer/CenterContainer/VBoxContainer/CenterContainer"]
+margin_right = 84.0
+margin_bottom = 32.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Paused"
+
+[node name="CenterContainer2" type="CenterContainer" parent="Pause/MarginContainer/CenterContainer/VBoxContainer"]
+margin_top = 36.0
+margin_right = 84.0
+margin_bottom = 52.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pause/MarginContainer/CenterContainer/VBoxContainer/CenterContainer2"]
+margin_left = 15.0
+margin_right = 69.0
+margin_bottom = 16.0
+
+[node name="CenterContainer" type="CenterContainer" parent="Pause/MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
+margin_right = 54.0
+margin_bottom = 16.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Pause/MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer"]
+margin_right = 54.0
+margin_bottom = 16.0
+
+[node name="Selector" type="Label" parent="Pause/MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer"]
+margin_right = 7.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 7, 0 )
+custom_fonts/font = SubResource( 56 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = ">"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionName" type="Label" parent="Pause/MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer"]
+margin_left = 11.0
+margin_right = 54.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 43, 0 )
+custom_fonts/font = SubResource( 58 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Quit"
+
+[node name="DeathScreen" type="Control" parent="."]
+pause_mode = 2
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BlackOverlay" type="ColorRect" parent="DeathScreen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.419608 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="DeathScreen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="CenterContainer" type="CenterContainer" parent="DeathScreen/MarginContainer"]
+margin_right = 320.0
+margin_bottom = 180.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DeathScreen/MarginContainer/CenterContainer"]
+margin_left = 80.0
+margin_top = 64.0
+margin_right = 240.0
+margin_bottom = 116.0
+
+[node name="CenterContainer" type="CenterContainer" parent="DeathScreen/MarginContainer/CenterContainer/VBoxContainer"]
+margin_right = 160.0
+margin_bottom = 32.0
+
+[node name="Label" type="Label" parent="DeathScreen/MarginContainer/CenterContainer/VBoxContainer/CenterContainer"]
+margin_right = 160.0
+margin_bottom = 32.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0.529412, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "YOU ARE DEAD"
+
+[node name="CenterContainer2" type="CenterContainer" parent="DeathScreen/MarginContainer/CenterContainer/VBoxContainer"]
+margin_top = 36.0
+margin_right = 160.0
+margin_bottom = 52.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DeathScreen/MarginContainer/CenterContainer/VBoxContainer/CenterContainer2"]
+margin_left = 50.0
+margin_right = 110.0
+margin_bottom = 16.0
+
+[node name="Selector" type="Label" parent="DeathScreen/MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/HBoxContainer"]
+margin_right = 7.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 7, 0 )
+custom_fonts/font = SubResource( 60 )
+custom_colors/font_color = Color( 0.760784, 0.760784, 0.760784, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = ">"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="DeathScreen/MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/HBoxContainer"]
+margin_left = 11.0
+margin_right = 60.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 62 )
+custom_colors/font_color = Color( 0.760784, 0.760784, 0.760784, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "RESTART"
+
+[node name="Inventory" type="Control" parent="." groups=[
+"Inventory",
+] instance=ExtResource( 5 )]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, -8 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="add_health_counter" from="Inventory" to="Inventory/RedPotionFull/HealthPotionCounter" method="_on_Inventory_add_health_counter"]

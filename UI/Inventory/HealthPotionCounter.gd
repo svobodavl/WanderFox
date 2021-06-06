@@ -1,11 +1,14 @@
 extends RichTextLabel
 
 var health_potion_counter = 0
+signal heal
+
 
 func _ready():
 	var health_potion_counterText = String(health_potion_counter)
 	self.clear()
 	append_bbcode(health_potion_counterText)
+	
 
 func _on_Inventory_add_health_counter():
 	health_potion_counter = health_potion_counter + 1
@@ -15,10 +18,15 @@ func _on_Inventory_add_health_counter():
 	append_bbcode(health_potion_counterText)
 
 func _on_Button_pressed():
-	health_potion_counter = health_potion_counter - 1
 	if health_potion_counter < 0:
 		health_potion_counter = 0
+	if health_potion_counter > 0:
+		health_potion_counter = health_potion_counter - 1
+		signals_suck()
 	var health_potion_counterText = String(health_potion_counter)
 	self.clear()
 	append_bbcode(health_potion_counterText)
-
+	
+func signals_suck():
+	print("heeeeal")
+	emit_signal("heal")

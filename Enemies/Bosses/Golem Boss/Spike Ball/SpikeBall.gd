@@ -19,7 +19,7 @@ func _physics_process(delta):
 	if player != null:
 		move = position.direction_to(player.position) * SPEED
 	else:
-		move = Vector2.ZERO
+		queue_free()
 		
 	move = move.normalized()
 	move = move_and_collide(move)

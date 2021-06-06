@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=2]
+[gd_scene load_steps=101 format=2]
 
 [ext_resource path="res://World/Bush/Bush.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -15,13 +15,19 @@
 [ext_resource path="res://Shaders/WhiteColorShader.shader" type="Shader" id=13]
 [ext_resource path="res://World/Stairs.jpg" type="Texture" id=14]
 [ext_resource path="res://World/NextLevelGateway.gd" type="Script" id=15]
-[ext_resource path="res://UI/Inventory/Inventory.tscn" type="PackedScene" id=16]
+[ext_resource path="res://UI/DeathScreen.gd" type="Script" id=16]
 [ext_resource path="res://Player/HealthPotion/RedPotionFull.tscn" type="PackedScene" id=17]
 [ext_resource path="res://UI/Pause.gd" type="Script" id=18]
 [ext_resource path="res://UI/PixelFont.tres" type="DynamicFont" id=19]
-[ext_resource path="res://UI/DeathScreen.gd" type="Script" id=20]
+[ext_resource path="res://UI/Inventory/Inventory.gd" type="Script" id=20]
 [ext_resource path="res://World.gd" type="Script" id=21]
 [ext_resource path="res://Music and Sounds/Music/World.wav" type="AudioStream" id=22]
+[ext_resource path="res://UI/Inventory/HealthPotionCounter.gd" type="Script" id=23]
+[ext_resource path="res://Player/Player.png" type="Texture" id=24]
+[ext_resource path="res://World/Bush/Bush.png" type="Texture" id=25]
+[ext_resource path="res://Player/HealthPotion/RedPotionFull.png" type="Texture" id=26]
+[ext_resource path="res://UI/Inventory/Inventory.png" type="Texture" id=27]
+[ext_resource path="res://UI/VPPixel-Simplified.otf" type="DynamicFontData" id=28]
 
 [sub_resource type="TileSet" id=1]
 resource_local_to_scene = true
@@ -565,6 +571,49 @@ font_path = "res://UI/Born2bSportyV2.ttf"
 [sub_resource type="DynamicFont" id=62]
 font_data = SubResource( 61 )
 
+[sub_resource type="AtlasTexture" id=63]
+atlas = ExtResource( 26 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=64]
+atlas = ExtResource( 26 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=65]
+atlas = ExtResource( 26 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=66]
+atlas = ExtResource( 26 )
+region = Rect2( 0, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=67]
+atlas = ExtResource( 26 )
+region = Rect2( 16, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=68]
+atlas = ExtResource( 26 )
+region = Rect2( 32, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=69]
+atlas = ExtResource( 26 )
+region = Rect2( 0, 32, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=70]
+atlas = ExtResource( 26 )
+region = Rect2( 16, 32, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=71]
+animations = [ {
+"frames": [ SubResource( 63 ), SubResource( 64 ), SubResource( 65 ), SubResource( 66 ), SubResource( 67 ), SubResource( 68 ), SubResource( 69 ), SubResource( 70 ) ],
+"loop": true,
+"name": "default",
+"speed": 6.0
+} ]
+
+[sub_resource type="DynamicFont" id=72]
+font_data = ExtResource( 28 )
+
 [node name="World" type="Node2D"]
 script = ExtResource( 21 )
 
@@ -590,7 +639,7 @@ tile_data = PoolIntArray( -524300, 0, 0, -524299, 0, 1, -524298, 0, 1, -524297, 
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Camera2D" parent="YSort" instance=ExtResource( 10 )]
-position = Vector2( 136, 48 )
+position = Vector2( 209, 51 )
 
 [node name="TopLeft" parent="YSort/Camera2D/Limits" index="0"]
 position = Vector2( -353, -239 )
@@ -601,7 +650,7 @@ position = Vector2( 672, 416 )
 [node name="Player" parent="YSort" groups=[
 "Player",
 ] instance=ExtResource( 2 )]
-position = Vector2( 136, 48 )
+position = Vector2( 209, 51 )
 collision_layer = 2147483650
 
 [node name="AnimationTree" parent="YSort/Player" index="4"]
@@ -988,7 +1037,7 @@ position = Vector2( -287, 191 )
 
 [node name="Sprite" parent="YSort/Bats/Bat" index="0"]
 material = SubResource( 51 )
-frame = 2
+frame = 1
 
 [node name="Bat8" parent="YSort/Bats" groups=[
 "Bats",
@@ -1083,7 +1132,7 @@ position = Vector2( -1, 0 )
 "HealthPotion",
 ] instance=ExtResource( 17 )]
 position = Vector2( -1, 0 )
-frame = 0
+frame = 3
 max_jump_height = 40
 max_jumps = 2
 jump_time = 1.0
@@ -1103,7 +1152,7 @@ anims/Open = SubResource( 53 )
 [node name="RedPotionFull" parent="YSort/Chests/Chest6" groups=[
 "HealthPotion",
 ] instance=ExtResource( 17 )]
-frame = 0
+frame = 3
 max_jump_height = 40
 max_jumps = 2
 jump_time = 1.0
@@ -1130,14 +1179,6 @@ margin_left = 4.0
 margin_top = 4.0
 margin_right = 63.0
 margin_bottom = 15.0
-
-[node name="Inventory" parent="CanvasLayer" groups=[
-"Inventory",
-] instance=ExtResource( 16 )]
-visible = false
-
-[node name="RedPotionFull" parent="CanvasLayer/Inventory" index="3"]
-frame = 3
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 layer = 100
@@ -1231,7 +1272,7 @@ pause_mode = 2
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 20 )
+script = ExtResource( 16 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1301,24 +1342,96 @@ custom_colors/font_color = Color( 0.760784, 0.760784, 0.760784, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "RESTART"
 
+[node name="Inventory" type="Control" parent="CanvasLayer2" groups=[
+"Inventory",
+]]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, -8 )
+script = ExtResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Inventory" type="TextureRect" parent="CanvasLayer2/Inventory"]
+margin_left = 16.0
+margin_right = 296.0
+margin_bottom = 160.0
+texture = ExtResource( 27 )
+expand = true
+
+[node name="PlayerSprite" type="TextureRect" parent="CanvasLayer2/Inventory"]
+margin_left = 40.0
+margin_top = 16.0
+margin_right = 104.0
+margin_bottom = 80.0
+rect_scale = Vector2( 2, 2 )
+texture = ExtResource( 24 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BushSprite" type="TextureRect" parent="CanvasLayer2/Inventory"]
+margin_left = 163.0
+margin_top = 91.0
+margin_right = 195.0
+margin_bottom = 123.0
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 25 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RedPotionFull" type="AnimatedSprite" parent="CanvasLayer2/Inventory"]
+position = Vector2( 5, 8 )
+frames = SubResource( 71 )
+frame = 1
+playing = true
+offset = Vector2( 165, 47 )
+
+[node name="HealthPotionCounter" type="RichTextLabel" parent="CanvasLayer2/Inventory/RedPotionFull"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 165.0
+margin_top = 36.0
+margin_right = 198.0
+margin_bottom = 63.0
+custom_fonts/normal_font = SubResource( 72 )
+bbcode_enabled = true
+script = ExtResource( 23 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="CanvasLayer2/Inventory/RedPotionFull"]
+margin_left = 153.0
+margin_top = 36.0
+margin_right = 185.0
+margin_bottom = 64.0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 22 )
 volume_db = -12.0
 
 [connection signal="BatCanSeePlayer" from="YSort/Player" to="YSort/Bats/Bat" method="_on_Player_BatCanSeePlayer"]
 [connection signal="BatCantSeePlayer" from="YSort/Player" to="YSort/Bats/Bat" method="_on_Player_BatCantSeePlayer"]
-[connection signal="player_died" from="YSort/Player" to="CanvasLayer2/DeathScreen" method="_on_Player_player_died"]
 [connection signal="HasBushOn" from="YSort/Bushes/Bush32" to="YSort/Player" method="_on_Bush4_HasBushOn"]
 [connection signal="HasBushOn" from="YSort/Bushes/Bush33" to="YSort/Player" method="_on_Bush4_HasBushOn"]
-[connection signal="chest_opened" from="YSort/Chests/Chest3" to="CanvasLayer/Inventory" method="_on_Chest3_chest_opened"]
-[connection signal="chest_opened" from="YSort/Chests/Chest4" to="CanvasLayer/Inventory" method="_on_Chest3_chest_opened"]
 [connection signal="chest_opened" from="YSort/Chests/Chest4" to="YSort/Chests/Chest4/RedPotionFull" method="_on_Chest4_chest_opened"]
-[connection signal="potion_picked_up" from="YSort/Chests/Chest4/RedPotionFull" to="CanvasLayer/Inventory" method="_on_RedPotionFull_potion_picked_up"]
-[connection signal="chest_opened" from="YSort/Chests/Chest6" to="CanvasLayer/Inventory" method="_on_Chest3_chest_opened"]
 [connection signal="chest_opened" from="YSort/Chests/Chest6" to="YSort/Chests/Chest6/RedPotionFull" method="_on_Chest4_chest_opened"]
-[connection signal="potion_picked_up" from="YSort/Chests/Chest6/RedPotionFull" to="CanvasLayer/Inventory" method="_on_RedPotionFull_potion_picked_up"]
 [connection signal="area_entered" from="YSort/NextLevelGateway" to="YSort/NextLevelGateway" method="_on_NextLevelGateway_area_entered"]
-[connection signal="pressed" from="CanvasLayer/Inventory/RedPotionFull/Button" to="YSort/Player" method="_on_Button_pressed"]
+[connection signal="add_health_counter" from="CanvasLayer2/Inventory" to="CanvasLayer2/Inventory/RedPotionFull/HealthPotionCounter" method="_on_Inventory_add_health_counter"]
+[connection signal="heal" from="CanvasLayer2/Inventory/RedPotionFull/HealthPotionCounter" to="YSort/Player" method="_on_HealthPotionCounter_heal"]
+[connection signal="pressed" from="CanvasLayer2/Inventory/RedPotionFull/Button" to="CanvasLayer2/Inventory/RedPotionFull/HealthPotionCounter" method="_on_Button_pressed"]
 
 [editable path="YSort/Camera2D"]
 [editable path="YSort/Player"]
@@ -1336,4 +1449,3 @@ volume_db = -12.0
 [editable path="YSort/Chests/Chest4/Interactable2"]
 [editable path="YSort/Chests/Chest6"]
 [editable path="YSort/Chests/Chest6/Interactable2"]
-[editable path="CanvasLayer/Inventory"]
